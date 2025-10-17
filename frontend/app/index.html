@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Falaí - Protótipo Interativo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+ <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Falaí - Protótipo Interativo</title>
+<style>
+  body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #fff; }
+  section { display: none; width: 100%; height: 100vh; }
+  #tela-mapa:target, #tela-perfil:target, #tela-denuncia, #tela-denuncia-modal, #tela-comentarios { display: block; }
+  #tela-mapa { display: block; }
+
+  .mapa-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Map_with_roads_grey_background.png/1280px-Map_with_roads_grey_background.png');
+    background-size: cover;
+    background-position: center;
+  }
+
+  /* Botões */
+  .nova-denuncia, .config-btn { position: absolute; cursor: pointer; }
+  .nova-denuncia {
+    top: 70px; right: 15px;
+    background-color: white; color: #007bff;
+    border: 1px solid #dcdcdc; border-radius: 8px;
+    padding: 8px 14px; display: flex; align-items: center; gap: 6px;
+    text-decoration: none; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  .nova-denuncia img { width: 16px; height: 16px; }
+  .nova-denuncia:hover { background-color: #f8f8f8; }
+  .config-btn { top: 15px; right: 15px; }
+  .config-btn img { width: 26px; height: 26px; }
+
+  /* PINS */
+  .pin { position: absolute; width: 30px; height: 30px; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; }
+  .pin img { width: 16px; height: 16px; }
+  .p1, .p2 { top: 35%; left: 48%; background-color: #6c757d; } /* Buraco */
+  .p3, .p4 { top: 50%; left: 52%; background-color: #007bff; } /* Alagamento */
+  .p5, .p6 { top: 40%; left: 60%; background-color: #dc3545; } /* Atividade criminosa */
+  .p7, .p8 { top: 55%; left: 45%; background-color: #28a745; } /* Árvore caída */
+
+  /* MENU INFERIOR */
+  .menu { position: fixed; bottom: 0; width: 100%; background-color: #fff; border-top: 1px solid #ddd; display: flex; justify-content: space-around; padding: 6px 0 10px 0; }
+  .menu-item { display: flex; flex-direction: column; align-items: center; color: #9b9b9b; font-size: 12px; text-decoration: none; }
+  .menu-item.active { color: #007bff; }
+  .menu-item img { width: 22px; height: 22px; margin-bottom: 2px; }
+
+  /* PERFIL */
+  #tela-perfil { background-color: #f7f7f7; }
+  .perfil-header { background-color: #007bff; color: white; padding: 20px; text-align: center; font-size: 20px; }
+  .perfil-content { padding: 20px; }
+  .perfil-item { background: white; padding: 15px; border-radius: 10px; margin-bottom: 15px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+  .perfil-item h3 { margin: 0 0 5px 0; color: #007bff; }
+  .btn-voltar, .btn-enviar, .btn-fechar, .btn-comentarios { display: block; margin: 20px auto; background-color: #007bff; color: white; padding: 10px; border-radius: 8px; text-decoration: none; text-align: center; cursor: pointer; width: 180px; }
+  .btn-voltar:hover, .btn-enviar:hover, .btn-fechar:hover, .btn-comentarios:hover { background-color: #005fcc; }
+
+  /* NOVA DENÚNCIA */
+  #tela-denuncia { background-color: #f7f7f7; padding: 20px; }
+  #tela-denuncia h2 { text-align: center; color: #007bff; margin-bottom: 20px; }
+  #tela-denuncia label { display: block; margin-bottom: 5px; font-weight: 600; }
+  #tela-denuncia textarea, #tela-denuncia select, #tela-denuncia input[type="file"] { width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #ccc; box-sizing: border-box; }
+
+  /* MODAL DA DENÚNCIA */
+  #tela-denuncia-modal, #tela-comentarios { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; z-index: 100; }
+  .modal-content { background: white; padding: 20px; border-radius: 10px; width: 90%; max-width: 400px; position: relative; }
+  .modal-content h3 { color: #007bff; margin-top: 0; }
+  .modal-content p { margin: 5px 0; }
+  .status { font-weight: bold; display: flex; align-items: center; gap: 6px; margin-top: 10px; }
+  .status .bolinha { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+  .status.aberto .bolinha { background-color: #007bff; }
+  .status.andamento .bolinha { background-color: #FFA500; }
+  .status.concluida .bolinha { background-color: #28a745; }
+
+  /* COMENTÁRIOS */
+  .comentario { display: flex; gap: 10px; align-items: flex-start; padding: 8px 0; border-bottom: 1px solid #eee; }
+  .comentario img { width: 32px; height: 32px; border-radius: 50%; }
+  .comentario .conteudo { font-size: 14px; }
+  .comentario .nome { font-weight: bold; margin-bottom: 2px; }
+</style>
+</head>
+<body>
+
+<!-- TELA MAPA -->
+<section id="tela-mapa">
+  <div class="mapa-container">
+    <a href="#tela-perfil" class="config-btn">
+      <img src="https://cdn-icons-png.flaticon.com/512/3524/3524659.png" alt="Configuração">
+    </a>
+
+    <a href="#tela-denuncia" class="nova-denuncia">
+      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" alt="Ícone denúncia">
+      Nova denúncia
+    </a>
+
+    <!-- PINS -->
+    <div class="pin p1" data-tipo="Buraco" data-endereco="Rua A, 123" data-desc="Descrição aleatória" data-status="Em Aberto" data-comentarios="Nome Sobrenome|Comentário comentário|Nome Sobrenome|Comentário comentário|Nome Sobrenome|Comentário comentário"><img src="https://cdn-icons-png.flaticon.com/512/684/684908.png"></div>
+    <div class="pin p2" data-tipo="Buraco" data-endereco="Rua B, 456" data-desc="Descrição aleatória" data-status="Em Andamento" data-comentarios="Nome Sobrenome|Comentário comentário|Nome Sobrenome|Comentário comentário|Nome Sobrenome|Comentário comentário"><img src="https://cdn-icons-png.flaticon.com/512/684/684908.png"></div>
+
+    <div class="pin p3" data-tipo="Alagamento" data-endereco="Rua C, 789" data-desc="Descrição aleatória" data-status="Concluída" data-comentarios="Nome Sobrenome|Comentário comentário|Nome Sobrenome|Comentário comentário|Nome Sobrenome|Comentário comentário"><img src="https://cdn-icons-png.flaticon.com/512/684/684908.png"></div>
+    <div class="pin p4" data-tipo="Alagamento" data-endereco="Rua D, 101" data-desc="Descrição aleatória" data-status="Em Aberto" data-comentarios="Nome Sobrenome|Comentário comentário|Nome Sobrenome|Comentário comentário|Nome Sobrenome|Comentário comentário"><img src="https://cdn-icons-png.flaticon.com/512/684/684908.png"></div>
+
+    <div class="pin p5" data-tipo="Atividade criminosa" data-endereco="Rua E, 112" data-desc="Descrição aleatória" data-status="Em Andamento" data-comentarios="Nome Sobrenome|Comentário comentário|Nome Sobrenome|Comentário comentário|Nome Sobrenome|Comentário comentário"><img src="https://cdn-icons-png.flaticon.com/512/684/684908.png"></div>
+    <div class="pin p6" data-tipo="Atividade criminosa" data-endereco="Rua F, 131" data-desc="Descrição aleatória" data-status="Concluída" data-comentarios="Nome Sobrenome|Comentário comentário|Nome Sobrenome|Comentário comentário|Nome Sobrenome|Comentário comentário"><img src="https://cdn-icons-png.flaticon.com/512/684/684908.png"></div>
+
+    <div class="pin p7" data-tipo="Árvore caída" data-endereco="Rua G, 415" data-desc="Descrição aleatória" data-status="Em Aberto" data-comentarios="Nome Sobrenome|Comentário comentário|Nome Sobrenome|Comentário comentário|Nome Sobrenome|Comentário comentário"><img src="https://cdn-icons-png.flaticon.com/512/684/684908.png"></div>
+    <div class="pin p8" data-tipo="Árvore caída" data-endereco="Rua H, 161" data-desc="Descrição aleatória" data-status="Concluída" data-comentarios="Nome Sobrenome|Comentário comentário|Nome Sobrenome|Comentário comentário|Nome Sobrenome|Comentário comentário"><img src="https://cdn-icons-png.flaticon.com/512/684/684908.png"></div>
+
+  </div>
+
+  <!-- MENU INFERIOR -->
+  <nav class="menu">
+    <a href="#tela-mapa" class="menu-item active">
+      <img src="https://cdn-icons-png.flaticon.com/512/1946/1946436.png" alt="Mapa">
+      <span>Mapa</span>
+    </a>
+    <a href="#" class="menu-item">
+      <img src="https://cdn-icons-png.flaticon.com/512/54/54481.png" alt="Buscar">
+      <span>Buscar</span>
+    </a>
+    <a href="#" class="menu-item">
+      <img src="https://cdn-icons-png.flaticon.com/512/565/565422.png" alt="Denúncias">
+      <span>Denúncias</span>
+    </a>
+    <a href="#" class="menu-item">
+      <img src="https://cdn-icons-png.flaticon.com/512/2462/2462719.png" alt="Mensagens">
+      <span>Mensagens</span>
+    </a>
+  </nav>
+</section>
+
+<!-- TELA PERFIL -->
+<section id="tela-perfil">
+  <div class="perfil-header">Perfil do Usuário</div>
+  <div class="perfil-content">
+    <div class="perfil-item"><h3>Nome</h3><p>Exemplo</p></div>
+    <div class="perfil-item"><h3>E-mail</h3><p>exemplo@gmail.com</p></div>
+    <div class="perfil-item"><h3>Preferências</h3><p>Receber notificações por e-mail e ativar localização automática.</p></div>
+    <a href="#tela-mapa" class="btn-voltar">Voltar</a>
+  </div>
+</section>
+
+<!-- TELA NOVA DENUNCIA -->
+<section id="tela-denuncia">
+  <h2>Nova Denúncia</h2>
+  <label>Descrição:</label>
+  <textarea rows="4"></textarea>
+  <label>Tipo de denúncia:</label>
+  <select>
+    <option>Atividade Criminosa</option>
+    <option>Árvore Caída</option>
+    <option>Alagamento</option>
+    <option>Buraco</option>
+  </select>
+  <label>Anexar imagem:</label>
+  <input type="file">
+  <a href="#tela-mapa" class="btn-enviar">Enviar</a>
+  <a href="#tela-mapa" class="btn-voltar">Voltar</a>
+</section>
+
+<!-- MODAL DENUNCIA -->
+<section id="tela-denuncia-modal">
+  <div class="modal-content" id="modal-denuncia-content">
+    <h3>Tipo de denúncia</h3>
+    <p class="endereco">Endereço</p>
+    <p class="descricao">Descrição</p>
+    <p>Status</p>
+    <p class="status"><span class="bolinha"></span> <span class="texto-status"></span></p>
+    <a class="btn-comentarios">Comentários</a>
+    <a class="btn-fechar">Fechar</a>
+  </div>
+</section>
+
+<!-- MODAL COMENTARIOS -->
+<section id="tela-comentarios">
+  <div class="modal-content" id="modal-comentarios-content">
+    <h3>Comentários</h3>
+    <p class="tipo-denuncia">Tipo de denúncia</p>
+    <p class="endereco">Endereço</p>
+    <div class="lista-comentarios"></div>
+    <a class="btn-fechar">Fechar</a>
+  </div>
+</section>
+
+<script>
+  const pins = document.querySelectorAll('.pin');
+  const modal = document.getElementById('tela-denuncia-modal');
+  const modalContent = document.getElementById('modal-denuncia-content');
+  const comentariosModal = document.getElementById('tela-comentarios');
+  const comentariosContent = document.getElementById('modal-comentarios-content');
+
+  pins.forEach(pin => {
+    pin.addEventListener('click', () => {
+      modal.style.display = 'flex';
+      modalContent.querySelector('h3').textContent = pin.dataset.tipo;
+      modalContent.querySelector('.endereco').textContent = pin.dataset.endereco;
+      modalContent.querySelector('.descricao').textContent = pin.dataset.desc;
+
+      const statusTexto = pin.dataset.status;
+      const statusEl = modalContent.querySelector('.status');
+      statusEl.className = 'status ' + (statusTexto.toLowerCase().replace(' ', ''));
+      statusEl.querySelector('.texto-status').textContent = statusTexto;
+
+      modalContent.querySelector('.btn-comentarios').onclick = () => {
+        comentariosModal.style.display = 'flex';
+        comentariosContent.querySelector('.tipo-denuncia').textContent = pin.dataset.tipo;
+        comentariosContent.querySelector('.endereco').textContent = pin.dataset.endereco;
+
+        const lista = comentariosContent.querySelector('.lista-comentarios');
+        lista.innerHTML = '';
+        const comentariosArray = pin.dataset.comentarios.split('|');
+        for(let i=0;i<comentariosArray.length;i+=2){
+          const div = document.createElement('div');
+          div.className = 'comentario';
+          div.innerHTML = `<img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="perfil"><div class="conteudo"><div class="nome">${comentariosArray[i]}</div><div>${comentariosArray[i+1]}</div></div>`;
+          lista.appendChild(div);
+        }
+      };
+    });
+  });
+
+  modalContent.querySelector('.btn-fechar').onclick = () => modal.style.display = 'none';
+  comentariosContent.querySelector('.btn-fechar').onclick = () => comentariosModal.style.display = 'none';
+</script>
+
+</body>
+</html>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
