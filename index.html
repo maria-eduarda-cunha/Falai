@@ -34,38 +34,6 @@
     </div>
   </section>
 
-  <!-- TELA BUSCA -->
-  <section id="tela-busca">
-    <h2>Tela de Busca</h2>
-    <p>Adicionar tela de pesquisa</p>
-  </section>
-
-  <!-- TELA MENSAGENS -->
-  <section id="tela-mensagens">
-    <h2>Tela de Mensagens</h2>
-    <p>Adicionar a tela de mensagens</p>
-  </section>
-
-  <!-- TELA PERFIL -->
-  <section id="tela-perfil">
-    <div class="perfil-header">Perfil do Usuário</div>
-    <div class="perfil-content">
-      <div class="perfil-item">
-        <h3>Nome</h3>
-        <p>Exemplo</p>
-      </div>
-      <div class="perfil-item">
-        <h3>E-mail</h3>
-        <p>exemplo@gmail.com</p>
-      </div>
-      <div class="perfil-item">
-        <h3>Preferências</h3>
-        <p>Receber notificações por e-mail e ativar localização automática.</p>
-      </div>
-      <a href="#tela-mapa" class="btn-voltar">Voltar</a>
-    </div>
-  </section>
-
   <!-- TELA NOVA DENUNCIA -->
   <section id="tela-nova-denuncia">
     <h2>Nova Denúncia</h2>
@@ -84,6 +52,32 @@
     <a onclick="mostrarTela('tela-lista-denuncias', this)" class="btn-enviar">Enviar</a>
   </section>
 
+  <!-- TELA BUSCA -->
+  <section id="tela-busca">
+    <h2>Tela de Busca</h2>
+    <p>Adicionar tela de pesquisa</p>
+  </section>
+
+  <!-- TELA PERFIL -->
+  <!-- <section id="tela-perfil">
+    <div class="perfil-header">Perfil do Usuário</div>
+    <div class="perfil-content">
+      <div class="perfil-item">
+        <h3>Nome</h3>
+        <p>Exemplo</p>
+      </div>
+      <div class="perfil-item">
+        <h3>E-mail</h3>
+        <p>exemplo@gmail.com</p>
+      </div>
+      <div class="perfil-item">
+        <h3>Preferências</h3>
+        <p>Receber notificações por e-mail e ativar localização automática.</p>
+      </div>
+      <a href="#tela-mapa" class="btn-voltar">Voltar</a>
+    </div>
+  </section> -->
+
   <!-- TELA LISTA DENUNCIAS -->
   <section id="tela-lista-denuncias">
     <h2>Minhas Denúncias</h2>
@@ -93,7 +87,6 @@
       <button class="aba" data-status="concluidas">Concluídas</button>
     </div>
 
-    <!-- Exemplo de lista de denúncias -->
     <div class="lista-denuncias">
       <div class="denuncia" data-status="abertas">
         <label>Buraco</label>
@@ -101,15 +94,121 @@
       </div>
       <div class="denuncia" data-status="em-andamento">
         <label>Árvore caída</label>
-        Rua B</div>
+        Rua B
+      </div>
       <div class="denuncia" data-status="concluidas">
         <label>Alagamento</label>
-        Rua C</div>
+        Rua C
+      </div>
       <div class="denuncia" data-status="abertas">
         <label>Atividade criminosa</label>
-        Rua D</div>
+        Rua D
+      </div>
+      <div class="denuncia" data-status="concluidas">
+        <label>Buraco</label>
+        Rua E
+      </div>
+      <div class="denuncia" data-status="concluidas">
+        <label>Árvore caída</label>
+        Rua F
+      </div>
+      <div class="denuncia" data-status="concluidas">
+        <label>Alagamento</label>
+        Rua G
+      </div>
+      <div class="denuncia" data-status="concluidas">
+        <label>Atividade criminosa</label>
+        Rua H
+      </div>
     </div>
   </section>
+
+  <!-- TELA NOTIFICAÇÕES -->
+  <section id="tela-notificacoes">
+    <h2> Notificações </h2>
+    <div class="lista-notificacoes">
+      <div class="notificacao" data-status="abertas">
+        <label>Denúncia enviada: Buraco - Rua A</label>
+        A prefeitura recebeu sua denúncia e analisará o problema. Saiba mais.
+      </div>
+
+      <div class="notificacao" data-status="em-andamento">
+        <label>Problema em análise: Árvore caída - Rua B</label>
+        A prefeitura acionou a equipe para ir até o local. Saiba mais.
+      </div>
+
+      <div class="notificacao" data-status="concluidas">
+        <label>Problema resolvido: Alagamento - Rua C</label>
+        A prefeitura realizou obras para criar mais valetas. Saiba mais.
+      </div>
+
+      <div class="notificacao" data-status="abertas">
+        <label>Denúncia enviada: Atividade criminosa - Rua D</label>
+        A prefeitura recebeu sua denúncia e analisará o problema. Saiba mais.
+      </div>
+
+      <div class="notificacao" data-status="abertas">
+        <label>Denúncia enviada: Árvore caída - Rua B</label>
+        A prefeitura recebeu sua denúncia e analisará o problema. Saiba mais.
+      </div>
+
+      <div class="notificacao" data-status="concluidas">
+        <label>Problema resolvido: Buraco - Rua E</label>
+        A prefeitura recapiou o trecho do buraco. Saiba mais.
+      </div>
+
+      <div class="notificacao" data-status="concluidas">
+        <label>Problema resolvido: Atividade criminosa - Rua H</label>
+        A prefeitura prendeu o grupo de criminosos. Saiba mais.
+      </div>
+
+      <div class="notificacao" data-status="em-andamento">
+        <label>Problema em análise: Alagamento - Rua C</label>
+        A prefeitura acionou a equipe de obras. Saiba mais.
+      </div>
+
+      <div class="notificacao" data-status="abertas">
+        <label>Denúncia enviada: Alagamento - Rua C</label>
+        A prefeitura recebeu sua denúncia e analisará o problema. Saiba mais.
+      </div>
+
+      <div class="notificacao" data-status="concluidas">
+        <label>Problema resolvido: Alagamento - Rua G</label>
+        A prefeitura realizou a lipeza dos bueiros. Saiba mais.
+      </div>
+
+      <div class="notificacao" data-status="concluidas">
+        <label>Problema resolvido: Árvore caída - Rua F</label>
+        A prefeitura removeu a árvore e realizará o plantiu de uma nova. Saiba mais
+      </div>
+
+      <div class="notificacao" data-status="em-andamento">
+        <label>Problema em análise: Buraco - Rua E</label>
+        A prefeitura acionou a equipe de obras. Saiba mais.
+      </div>
+
+      <div class="notificacao" data-status="abertas">
+        <label>Denúncia enviada: Buraco - Rua E</label>
+        A prefeitura recebeu sua denúncia e analisará o problema. Saiba mais.
+      </div>
+
+      <div class="notificacao" data-status="abertas">
+        <label>Denúncia enviada: Atividade criminosa - Rua H</label>
+        A prefeitura recebeu sua denúncia e analisará o problema. Saiba mais.
+      </div>
+
+      <div class="notificacao" data-status="abertas">
+        <label>Denúncia enviada: Alagamento - Rua G</label>
+        A prefeitura recebeu sua denúncia e analisará o problema. Saiba mais.
+      </div>
+
+      <div class="notificacao" data-status="abertas">
+        <label>Denúncia enviada: Árvore caída - Rua F</label>
+        A prefeitura recebeu sua denúncia e analisará o problema. Saiba mais.
+      </div>
+    </div>
+  </section>
+
 
 
   <!-- MODAL DENUNCIA -->
@@ -150,9 +249,9 @@
       <span class="material-symbols-outlined">feedback</span>
       <span>Denúncias</span>
     </a>
-    <a onclick="mostrarTela('tela-mensagens', this)">
-      <span class="material-symbols-outlined">mail</span>
-      <span>Mensagens</span>
+    <a onclick="mostrarTela('tela-notificacoes', this)">
+      <span class="material-symbols-outlined">notifications</span>
+      <span>Notificações</span>
     </a>
   </nav>
 

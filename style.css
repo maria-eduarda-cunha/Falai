@@ -35,7 +35,7 @@ section.ativo {
   margin-bottom: 40px
 }
 
-#tela-busca, #tela-mensagens, #tela-perfil, #tela-nova-denuncia, #tela-lista-denuncias, #tela-denuncia-modal, #tela-comentarios {
+#tela-busca, #tela-notificacoes, #tela-perfil, #tela-nova-denuncia, #tela-lista-denuncias, #tela-denuncia-modal, #tela-comentarios {
   height: 86vh;
   width:auto;
   padding: 20px;
@@ -89,6 +89,18 @@ section.ativo {
 }
 
 #tela-lista-denuncias .lista-denuncias .denuncia {
+  padding: 10px;
+  margin-bottom: 6px;
+  border-radius: 8px;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+}
+
+/* NOTIFICAÇÕES */
+#tela-notificacoes {
+  overflow: auto;
+}
+#tela-notificacoes .lista-notificacoes .notificacao {
   padding: 10px;
   margin-bottom: 6px;
   border-radius: 8px;
