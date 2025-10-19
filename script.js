@@ -17,6 +17,56 @@ function mostrarTela(telaId, menuItem) {
 // Mostra a tela de mapa por padrão
 mostrarTela('tela-mapa', document.querySelector('.menu a'));
 
+// --------------------- TELA BUSCAR ---------------------
+const campoBusca = document.getElementById('campo-busca');
+const resultados = document.getElementById('resultados-busca');
+
+// Simulação de denúncias globais
+const todas_denuncias = [
+  { titulo: 'Entulho - Parque Ibirapuera', autor: 'Maria Eduarda', status:'Concluída' },
+  { titulo: 'Buraco - Avenida Paulista', autor: 'Rodrigo', status:'Concluída' },
+  { titulo: 'Alagamento - Rua Normandia', autor: 'Júlia', status:'Em andamento' },
+  { titulo: 'Árvore Caída - Rua 13 de Maio', autor: 'Bianca', status:'Aberta' },
+];
+
+function renderizarDenuncias(lista) {
+  if (lista.length === 0) {
+    resultados.innerHTML = '<p>Nenhuma denúncia encontrada</p>';
+    return;
+  }
+
+  resultados.innerHTML = lista
+    .map(
+      (d) => `
+      <p>
+        <strong>${d.titulo}</strong>
+        <small>por ${d.autor}</small><br>
+        <small>Status: ${d.status}</small>
+      </p>`
+    )
+    .join('');
+}
+
+// Exibe todas as denúncias ao abrir a tela
+renderizarDenuncias(todas_denuncias);
+
+campoBusca.addEventListener('input', e => {
+  const termo = e.target.value.toLowerCase().trim();
+
+  if (termo === '') {
+    renderizarDenuncias(todas_denuncias);
+    return;
+  }
+
+  const filtradas = todas_denuncias.filter(d =>
+    d.titulo.toLowerCase().includes(termo)
+  );
+
+  resultados.innerHTML = filtradas.length
+    ? filtradas.map(d => `<p><strong>${d.titulo}</strong><br><small>por ${d.autor}</small></p>`).join('')
+    : '<p>Nenhuma denúncia encontrada</p>';
+});
+
 
 // --------------------- TELA LISTA DENUNCIAS ---------------------
 const abas = document.querySelectorAll('.lista-denuncias-menu .aba');

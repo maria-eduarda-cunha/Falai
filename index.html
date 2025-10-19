@@ -46,6 +46,7 @@
       <option>Árvore Caída</option>
       <option>Alagamento</option>
       <option>Buraco</option>
+      <option>Entulho</option>
     </select>
     <label>Anexar imagem:</label>
     <input type="file">
@@ -54,8 +55,12 @@
 
   <!-- TELA BUSCA -->
   <section id="tela-busca">
-    <h2>Tela de Busca</h2>
-    <p>Adicionar tela de pesquisa</p>
+    <h2>Buscar denúncias</h2>
+    <div class="buscar-header">
+      <input type="text" id="campo-busca" placeholder="Digite para buscar entre todas as denúncias">
+    </div>
+
+    <div id="resultados-busca" class="lista-todas-denuncias"></div>
   </section>
 
   <!-- TELA PERFIL -->
@@ -97,7 +102,7 @@
         Rua B
       </div>
       <div class="denuncia" data-status="concluidas">
-        <label>Alagamento</label>
+        <label>Entulho</label>
         Rua C
       </div>
       <div class="denuncia" data-status="abertas">
@@ -138,8 +143,8 @@
       </div>
 
       <div class="notificacao" data-status="concluidas">
-        <label>Problema resolvido: Alagamento - Rua C</label>
-        A prefeitura realizou obras para criar mais valetas. Saiba mais.
+        <label>Problema resolvido: Entulho - Rua C</label>
+        A prefeitura realizou a limpeza do local. Saiba mais.
       </div>
 
       <div class="notificacao" data-status="abertas">
@@ -163,12 +168,12 @@
       </div>
 
       <div class="notificacao" data-status="em-andamento">
-        <label>Problema em análise: Alagamento - Rua C</label>
-        A prefeitura acionou a equipe de obras. Saiba mais.
+        <label>Problema em análise: Entulho - Rua C</label>
+        A prefeitura acionou a equipe de limpeza. Saiba mais.
       </div>
 
       <div class="notificacao" data-status="abertas">
-        <label>Denúncia enviada: Alagamento - Rua C</label>
+        <label>Denúncia enviada: Entulho - Rua C</label>
         A prefeitura recebeu sua denúncia e analisará o problema. Saiba mais.
       </div>
 
@@ -212,7 +217,7 @@
 
 
   <!-- MODAL DENUNCIA -->
-  <section id="tela-denuncia-modal">
+  <!-- <section id="tela-denuncia-modal">
     <div class="modal-content" id="modal-denuncia-content">
       <h3>Tipo de denúncia</h3>
       <p class="endereco">Endereço</p>
@@ -222,10 +227,10 @@
       <a class="btn-comentarios">Comentários</a>
       <a class="btn-fechar">Fechar</a>
     </div>
-  </section>
+  </section> -->
 
   <!-- MODAL COMENTARIOS -->
-  <section id="tela-comentarios">
+  <!-- <section id="tela-comentarios">
     <div class="modal-content" id="modal-comentarios-content">
       <h3>Comentários</h3>
       <p class="tipo-denuncia">Tipo de denúncia</p>
@@ -233,7 +238,7 @@
       <div class="lista-comentarios"></div>
       <a class="btn-fechar">Fechar</a>
     </div>
-  </section>
+  </section> -->
 
   <!-- MENU INFERIOR -->
   <nav class="menu">
