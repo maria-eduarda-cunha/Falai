@@ -17,22 +17,26 @@
 <body>
 
   <!-- TELA MAPA -->
-  <section id="tela-mapa">
-    <div class="mapa-container">
-
-      <a class="nova-denuncia" onclick="mostrarTela('tela-nova-denuncia', this)">
-        <span class="material-symbols-outlined">add_circle</span>
-        Nova denúncia
-      </a>
+<section id="tela-mapa">
+  <div class="mapa-container">
+    <div class="mapa-inner" id="mapa">
+      <img src="/assets/mockup-mapa.png" alt="Mapa">
 
       <!-- PINS -->
-      <span class="material-symbols-outlined pin" style="transform: translate(150px, 300px)">fmd_bad</span>
-      <span class="material-symbols-outlined pin" style="transform: translate(300px, 600px)">fmd_bad</span>
-      <span class="material-symbols-outlined pin" style="transform: translate(690px, 650px)">fmd_bad</span>
-      <span class="material-symbols-outlined pin" style="transform: translate(160px, 400px)">fmd_bad</span>
-
+      <span class="material-symbols-outlined pin" style="top: 300px; left: 150px;">fmd_bad</span>
+      <span class="material-symbols-outlined pin" style="top: 600px; left: 300px;">fmd_bad</span>
+      <span class="material-symbols-outlined pin" style="top: 650px; left: 690px;">fmd_bad</span>
+      <span class="material-symbols-outlined pin" style="top: 400px; left: 160px;">fmd_bad</span>
     </div>
-  </section>
+
+    <a class="nova-denuncia" onclick="mostrarTela('tela-nova-denuncia', this)">
+      <span class="material-symbols-outlined">add_circle</span>
+      Nova denúncia
+    </a>
+  </div>
+</section>
+
+
 
   <!-- TELA NOVA DENUNCIA -->
   <section id="tela-nova-denuncia">

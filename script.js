@@ -89,3 +89,19 @@ abas.forEach(aba => {
     filtrarDenuncias(aba.dataset.status);
   });
 });
+
+// --------------------- ZOOM NO MAPA ---------------------
+let zoom = 1;
+const mapa = document.getElementById('mapa');
+
+document.addEventListener('wheel', e => {
+  if (!mapa.closest('#tela-mapa.ativo')) return; // só se mapa visível
+  e.preventDefault();
+
+  if (e.deltaY < 0) zoom *= 1.1; // zoom in
+  else zoom /= 1.1; // zoom out
+
+  zoom = Math.min(Math.max(zoom, 0.5), 3); // limita zoom
+  mapa.style.transform = `scale(${zoom})`;
+}, { passive: false });
+
