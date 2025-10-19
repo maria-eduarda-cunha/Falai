@@ -28,6 +28,10 @@ section { display: none; width: 100%; height: 100vh; }
 .config-btn img { width: 26px; height: 26px; }
 
 /* PINS */
+.material-symbols-outlined {
+  font-size: 60px; /* Tamanho do ícone */
+  vertical-align: middle;
+}
 .pin { position: absolute; width: 30px; height: 30px; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; }
 .pin img { width: 16px; height: 16px; }
 .p1, .p2 { top: 35%; left: 48%; background-color: #6c757d; }
