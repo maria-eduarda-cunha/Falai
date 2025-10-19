@@ -90,18 +90,18 @@ abas.forEach(aba => {
   });
 });
 
-// --------------------- ZOOM NO MAPA ---------------------
+// --------------------- ZOOM AJUSTADO ---------------------
 let zoom = 1;
 const mapa = document.getElementById('mapa');
 
 document.addEventListener('wheel', e => {
-  if (!mapa.closest('#tela-mapa.ativo')) return; // só se mapa visível
+  if (!mapa.closest('#tela-mapa.ativo')) return;
   e.preventDefault();
 
-  if (e.deltaY < 0) zoom *= 1.1; // zoom in
-  else zoom /= 1.1; // zoom out
+  if (e.deltaY < 0) zoom *= 1.1;
+  else zoom /= 1.1;
 
-  zoom = Math.min(Math.max(zoom, 0.5), 3); // limita zoom
+  zoom = Math.min(Math.max(zoom, 1), 3); //mantém sempre cobrindo a tela
   mapa.style.transform = `scale(${zoom})`;
 }, { passive: false });
 
