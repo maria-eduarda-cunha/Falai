@@ -8,7 +8,7 @@ section { display: none; width: 100%; height: 100vh; }
   position: relative;
   width: 100%;
   height: 100vh;
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Map_with_roads_grey_background.png/1280px-Map_with_roads_grey_background.png');
+  background-image: url('/assets/mockup-mapa.png');
   background-size: cover;
   background-position: center;
 }

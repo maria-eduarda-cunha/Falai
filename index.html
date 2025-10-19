@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
@@ -6,7 +6,7 @@
   <title>Falaí - Protótipo Interativo</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body> -->
 
  <!DOCTYPE html>
 <html lang="pt-BR">
@@ -14,89 +14,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Falaí - Protótipo Interativo</title>
-<style>
-  body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #fff; }
-  section { display: none; width: 100%; height: 100vh; }
-  #tela-mapa:target, #tela-perfil:target, #tela-denuncia, #tela-denuncia-modal, #tela-comentarios { display: block; }
-  #tela-mapa { display: block; }
-
-  .mapa-container {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Map_with_roads_grey_background.png/1280px-Map_with_roads_grey_background.png');
-    background-size: cover;
-    background-position: center;
-  }
-
-  /* Botões */
-  .nova-denuncia, .config-btn { position: absolute; cursor: pointer; }
-  .nova-denuncia {
-    top: 70px; right: 15px;
-    background-color: white; color: #007bff;
-    border: 1px solid #dcdcdc; border-radius: 8px;
-    padding: 8px 14px; display: flex; align-items: center; gap: 6px;
-    text-decoration: none; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  }
-  .nova-denuncia img { width: 16px; height: 16px; }
-  .nova-denuncia:hover { background-color: #f8f8f8; }
-  .config-btn { top: 15px; right: 15px; }
-  .config-btn img { width: 26px; height: 26px; }
-
-  /* PINS */
-  .pin { position: absolute; width: 30px; height: 30px; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; }
-  .pin img { width: 16px; height: 16px; }
-  .p1, .p2 { top: 35%; left: 48%; background-color: #6c757d; } /* Buraco */
-  .p3, .p4 { top: 50%; left: 52%; background-color: #007bff; } /* Alagamento */
-  .p5, .p6 { top: 40%; left: 60%; background-color: #dc3545; } /* Atividade criminosa */
-  .p7, .p8 { top: 55%; left: 45%; background-color: #28a745; } /* Árvore caída */
-
-  /* MENU INFERIOR */
-  .menu { position: fixed; bottom: 0; width: 100%; background-color: #fff; border-top: 1px solid #ddd; display: flex; justify-content: space-around; padding: 6px 0 10px 0; }
-  .menu-item { display: flex; flex-direction: column; align-items: center; color: #9b9b9b; font-size: 12px; text-decoration: none; }
-  .menu-item.active { color: #007bff; }
-  .menu-item img { width: 22px; height: 22px; margin-bottom: 2px; }
-
-  /* PERFIL */
-  #tela-perfil { background-color: #f7f7f7; }
-  .perfil-header { background-color: #007bff; color: white; padding: 20px; text-align: center; font-size: 20px; }
-  .perfil-content { padding: 20px; }
-  .perfil-item { background: white; padding: 15px; border-radius: 10px; margin-bottom: 15px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-  .perfil-item h3 { margin: 0 0 5px 0; color: #007bff; }
-  .btn-voltar, .btn-enviar, .btn-fechar, .btn-comentarios { display: block; margin: 20px auto; background-color: #007bff; color: white; padding: 10px; border-radius: 8px; text-decoration: none; text-align: center; cursor: pointer; width: 180px; }
-  .btn-voltar:hover, .btn-enviar:hover, .btn-fechar:hover, .btn-comentarios:hover { background-color: #005fcc; }
-
-  /* NOVA DENÚNCIA */
-  #tela-denuncia { background-color: #f7f7f7; padding: 20px; }
-  #tela-denuncia h2 { text-align: center; color: #007bff; margin-bottom: 20px; }
-  #tela-denuncia label { display: block; margin-bottom: 5px; font-weight: 600; }
-  #tela-denuncia textarea, #tela-denuncia select, #tela-denuncia input[type="file"] { width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #ccc; box-sizing: border-box; }
-
-  /* MODAL DA DENÚNCIA */
-  #tela-denuncia-modal, #tela-comentarios { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; z-index: 100; }
-  .modal-content { background: white; padding: 20px; border-radius: 10px; width: 90%; max-width: 400px; position: relative; }
-  .modal-content h3 { color: #007bff; margin-top: 0; }
-  .modal-content p { margin: 5px 0; }
-  .status { font-weight: bold; display: flex; align-items: center; gap: 6px; margin-top: 10px; }
-  .status .bolinha { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
-  .status.aberto .bolinha { background-color: #007bff; }
-  .status.andamento .bolinha { background-color: #FFA500; }
-  .status.concluida .bolinha { background-color: #28a745; }
-
-  /* COMENTÁRIOS */
-  .comentario { display: flex; gap: 10px; align-items: flex-start; padding: 8px 0; border-bottom: 1px solid #eee; }
-  .comentario img { width: 32px; height: 32px; border-radius: 50%; }
-  .comentario .conteudo { font-size: 14px; }
-  .comentario .nome { font-weight: bold; margin-bottom: 2px; }
-</style>
 </head>
 <body>
 
 <!-- TELA MAPA -->
 <section id="tela-mapa">
   <div class="mapa-container">
+    
     <a href="#tela-perfil" class="config-btn">
-      <img src="https://cdn-icons-png.flaticon.com/512/3524/3524659.png" alt="Configuração">
+      <link rel="stylesheet" href="style.css">
     </a>
 
     <a href="#tela-denuncia" class="nova-denuncia">
