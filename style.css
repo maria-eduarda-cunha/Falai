@@ -32,8 +32,7 @@ section.ativo {
 /* --------------------- TELAS --------------------- */
 #tela-mapa {
   height: 86vh;
-  margin-bottom: 0;
-  padding: 0;
+  margin-bottom: 40px
 }
 
 #tela-busca, #tela-notificacoes, #tela-perfil, #tela-nova-denuncia, #tela-lista-denuncias, #tela-denuncia-modal, #tela-comentarios {
@@ -47,26 +46,23 @@ section.ativo {
 .mapa-container {
   position: relative;
   width: 100%;
-  height: 100%;   /* preenche a section inteira */
+  height: 90vh;
   overflow: hidden;
-  background-color: transparent; /* não quer faixas cinza visíveis */
-  display: block;
+  background-color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .mapa-inner {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  position: relative;
   transform-origin: center center;
   transition: transform 0.3s ease;
 }
 
 .mapa-inner img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* cobre todo o contêiner sem distorcer */
+  width: 1000px; /* largura base */
+  height: auto;
   display: block;
 }
 
@@ -75,7 +71,7 @@ section.ativo {
   color: royalblue;
   font-size: 40px;
   cursor: pointer;
-  z-index: 2;
+  transition: transform 0.3s ease;
 }
 
 .pin:hover {
