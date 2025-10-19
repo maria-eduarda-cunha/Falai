@@ -1,164 +1,134 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Falaí - Protótipo Interativo</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Falaí - Protótipo Interativo</title>
+
+  <!-- ICONS -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
+
+
 <body>
 
-<!-- TELA MAPA -->
-<section id="tela-mapa">
-  <div class="mapa-container">
-    
-    <a href="#tela-perfil" class="config-btn">
-      <link rel="stylesheet" href="style.css">
-    </a>
+  <!-- TELA MAPA -->
+  <section id="tela-mapa">
+    <div class="mapa-container">
 
-    <a href="#tela-denuncia" class="nova-denuncia">
-      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" alt="Ícone denúncia">
-      Nova denúncia
-    </a>
+      <a href="#tela-denuncia" class="nova-denuncia">
+        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" alt="Ícone denúncia">
+        Nova denúncia
+      </a>
 
-    <!-- PINS -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" />
+      <!-- PINS -->
+      <span class="material-symbols-outlined pin" style="transform: translate(150px, 300px)">fmd_bad</span>
+      <span class="material-symbols-outlined pin" style="transform: translate(300px, 600px)">fmd_bad</span>
+      <span class="material-symbols-outlined pin" style="transform: translate(690px, 650px)">fmd_bad</span>
+      <span class="material-symbols-outlined pin" style="transform: translate(160px, 400px)">fmd_bad</span>
 
-    
-    <span class="material-symbols-outlined" style="color:red">fmd_bad</span>
-    
-    <div class="pin p1" data-tipo="Buraco" data-endereco="Rua A, 123" data-desc="Descrição aleatória" data-status="Em Aberto" data-comentarios="Nome Sobrenome|Comentário comentário|Nome Sobrenome|Comentário comentário|Nome Sobrenome|Comentário comentário"><img src="https://cdn-icons-png.flaticon.com/512/684/684908.png"></div>
-    <div class="pin p2" data-tipo="Buraco" data-endereco="Rua B, 456" data-desc="Descrição aleatória" data-status="Em Andamento" data-comentarios="Nome Sobrenome|Comentário comentário|Nome Sobrenome|Comentário comentário|Nome Sobrenome|Comentário comentário"><img src="https://cdn-icons-png.flaticon.com/512/684/684908.png"></div>
+    </div>
+  </section>
 
-    <div class="pin p3" data-tipo="Alagamento" data-endereco="Rua C, 789" data-desc="Descrição aleatória" data-status="Concluída" data-comentarios="Nome Sobrenome|Comentário comentário|Nome Sobrenome|Comentário comentário|Nome Sobrenome|Comentário comentário"><img src="https://cdn-icons-png.flaticon.com/512/684/684908.png"></div>
-    <div class="pin p4" data-tipo="Alagamento" data-endereco="Rua D, 101" data-desc="Descrição aleatória" data-status="Em Aberto" data-comentarios="Nome Sobrenome|Comentário comentário|Nome Sobrenome|Comentário comentário|Nome Sobrenome|Comentário comentário"><img src="https://cdn-icons-png.flaticon.com/512/684/684908.png"></div>
+  <!-- TELA BUSCA -->
+  <section id="tela-busca">
+    <h2>Tela de Busca</h2>
+    <p>Adicionar tela de pesquisa</p>
+  </section>
 
-    <div class="pin p5" data-tipo="Atividade criminosa" data-endereco="Rua E, 112" data-desc="Descrição aleatória" data-status="Em Andamento" data-comentarios="Nome Sobrenome|Comentário comentário|Nome Sobrenome|Comentário comentário|Nome Sobrenome|Comentário comentário"><img src="https://cdn-icons-png.flaticon.com/512/684/684908.png"></div>
-    <div class="pin p6" data-tipo="Atividade criminosa" data-endereco="Rua F, 131" data-desc="Descrição aleatória" data-status="Concluída" data-comentarios="Nome Sobrenome|Comentário comentário|Nome Sobrenome|Comentário comentário|Nome Sobrenome|Comentário comentário"><img src="https://cdn-icons-png.flaticon.com/512/684/684908.png"></div>
+  <!-- TELA MENSAGENS -->
+  <section id="tela-mensagens">
+    <h2>Tela de Mensagens</h2>
+    <p>Adicionar a tela de mensagens</p>
+  </section>
 
-    <div class="pin p7" data-tipo="Árvore caída" data-endereco="Rua G, 415" data-desc="Descrição aleatória" data-status="Em Aberto" data-comentarios="Nome Sobrenome|Comentário comentário|Nome Sobrenome|Comentário comentário|Nome Sobrenome|Comentário comentário"><img src="https://cdn-icons-png.flaticon.com/512/684/684908.png"></div>
-    <div class="pin p8" data-tipo="Árvore caída" data-endereco="Rua H, 161" data-desc="Descrição aleatória" data-status="Concluída" data-comentarios="Nome Sobrenome|Comentário comentário|Nome Sobrenome|Comentário comentário|Nome Sobrenome|Comentário comentário"><img src="https://cdn-icons-png.flaticon.com/512/684/684908.png"></div>
+  <!-- TELA PERFIL -->
+  <section id="tela-perfil">
+    <div class="perfil-header">Perfil do Usuário</div>
+    <div class="perfil-content">
+      <div class="perfil-item">
+        <h3>Nome</h3>
+        <p>Exemplo</p>
+      </div>
+      <div class="perfil-item">
+        <h3>E-mail</h3>
+        <p>exemplo@gmail.com</p>
+      </div>
+      <div class="perfil-item">
+        <h3>Preferências</h3>
+        <p>Receber notificações por e-mail e ativar localização automática.</p>
+      </div>
+      <a href="#tela-mapa" class="btn-voltar">Voltar</a>
+    </div>
+  </section>
 
-  </div>
+  <!-- TELA NOVA DENUNCIA -->
+  <section id="tela-denuncia">
+    <h2>Nova Denúncia</h2>
+    <label>Descrição:</label>
+    <textarea rows="4"></textarea>
+    <label>Tipo de denúncia:</label>
+    <select>
+      <option>Atividade Criminosa</option>
+      <option>Árvore Caída</option>
+      <option>Alagamento</option>
+      <option>Buraco</option>
+    </select>
+    <label>Anexar imagem:</label>
+    <input type="file">
+    <a href="#tela-mapa" class="btn-enviar">Enviar</a>
+    <a href="#tela-mapa" class="btn-voltar">Voltar</a>
+  </section>
+
+  <!-- MODAL DENUNCIA -->
+  <section id="tela-denuncia-modal">
+    <div class="modal-content" id="modal-denuncia-content">
+      <h3>Tipo de denúncia</h3>
+      <p class="endereco">Endereço</p>
+      <p class="descricao">Descrição</p>
+      <p>Status</p>
+      <p class="status"><span class="bolinha"></span> <span class="texto-status"></span></p>
+      <a class="btn-comentarios">Comentários</a>
+      <a class="btn-fechar">Fechar</a>
+    </div>
+  </section>
+
+  <!-- MODAL COMENTARIOS -->
+  <section id="tela-comentarios">
+    <div class="modal-content" id="modal-comentarios-content">
+      <h3>Comentários</h3>
+      <p class="tipo-denuncia">Tipo de denúncia</p>
+      <p class="endereco">Endereço</p>
+      <div class="lista-comentarios"></div>
+      <a class="btn-fechar">Fechar</a>
+    </div>
+  </section>
 
   <!-- MENU INFERIOR -->
   <nav class="menu">
-    <a href="#tela-mapa" class="menu-item active">
-      <span class="material-symbols-outlined" style="color:blue">other_houses</span>
+    <a href="#" onclick="mostrarTela('tela-mapa', this)">
+      <span class="material-symbols-outlined">other_houses</span>
       <span>Mapa</span>
     </a>
-    <a href="#" class="menu-item">
-      <span class="material-symbols-outlined" style="color:blue">search</span>
+    <a href="#" onclick="mostrarTela('tela-busca', this)">
+      <span class="material-symbols-outlined">search</span>
       <span>Buscar</span>
     </a>
-    <a href="#" class="menu-item">
-      <span class="material-symbols-outlined" style="color:blue">feedback</span>
+    <a href="#" onclick="mostrarTela('tela-denuncia', this)">
+      <span class="material-symbols-outlined">feedback</span>
       <span>Denúncias</span>
     </a>
-    <a href="#" class="menu-item">
-      <span class="material-symbols-outlined" style="color:blue">mail</span>
+    <a href="#" onclick="mostrarTela('tela-mensagens', this)">
+      <span class="material-symbols-outlined">mail</span>
       <span>Mensagens</span>
     </a>
   </nav>
-</section>
-
-<!-- TELA PERFIL -->
-<section id="tela-perfil">
-  <div class="perfil-header">Perfil do Usuário</div>
-  <div class="perfil-content">
-    <div class="perfil-item"><h3>Nome</h3><p>Exemplo</p></div>
-    <div class="perfil-item"><h3>E-mail</h3><p>exemplo@gmail.com</p></div>
-    <div class="perfil-item"><h3>Preferências</h3><p>Receber notificações por e-mail e ativar localização automática.</p></div>
-    <a href="#tela-mapa" class="btn-voltar">Voltar</a>
-  </div>
-</section>
-
-<!-- TELA NOVA DENUNCIA -->
-<section id="tela-denuncia">
-  <h2>Nova Denúncia</h2>
-  <label>Descrição:</label>
-  <textarea rows="4"></textarea>
-  <label>Tipo de denúncia:</label>
-  <select>
-    <option>Atividade Criminosa</option>
-    <option>Árvore Caída</option>
-    <option>Alagamento</option>
-    <option>Buraco</option>
-  </select>
-  <label>Anexar imagem:</label>
-  <input type="file">
-  <a href="#tela-mapa" class="btn-enviar">Enviar</a>
-  <a href="#tela-mapa" class="btn-voltar">Voltar</a>
-</section>
-
-<!-- MODAL DENUNCIA -->
-<section id="tela-denuncia-modal">
-  <div class="modal-content" id="modal-denuncia-content">
-    <h3>Tipo de denúncia</h3>
-    <p class="endereco">Endereço</p>
-    <p class="descricao">Descrição</p>
-    <p>Status</p>
-    <p class="status"><span class="bolinha"></span> <span class="texto-status"></span></p>
-    <a class="btn-comentarios">Comentários</a>
-    <a class="btn-fechar">Fechar</a>
-  </div>
-</section>
-
-<!-- MODAL COMENTARIOS -->
-<section id="tela-comentarios">
-  <div class="modal-content" id="modal-comentarios-content">
-    <h3>Comentários</h3>
-    <p class="tipo-denuncia">Tipo de denúncia</p>
-    <p class="endereco">Endereço</p>
-    <div class="lista-comentarios"></div>
-    <a class="btn-fechar">Fechar</a>
-  </div>
-</section>
-
-<script>
-  const pins = document.querySelectorAll('.pin');
-  const modal = document.getElementById('tela-denuncia-modal');
-  const modalContent = document.getElementById('modal-denuncia-content');
-  const comentariosModal = document.getElementById('tela-comentarios');
-  const comentariosContent = document.getElementById('modal-comentarios-content');
-
-  pins.forEach(pin => {
-    pin.addEventListener('click', () => {
-      modal.style.display = 'flex';
-      modalContent.querySelector('h3').textContent = pin.dataset.tipo;
-      modalContent.querySelector('.endereco').textContent = pin.dataset.endereco;
-      modalContent.querySelector('.descricao').textContent = pin.dataset.desc;
-
-      const statusTexto = pin.dataset.status;
-      const statusEl = modalContent.querySelector('.status');
-      statusEl.className = 'status ' + (statusTexto.toLowerCase().replace(' ', ''));
-      statusEl.querySelector('.texto-status').textContent = statusTexto;
-
-      modalContent.querySelector('.btn-comentarios').onclick = () => {
-        comentariosModal.style.display = 'flex';
-        comentariosContent.querySelector('.tipo-denuncia').textContent = pin.dataset.tipo;
-        comentariosContent.querySelector('.endereco').textContent = pin.dataset.endereco;
-
-        const lista = comentariosContent.querySelector('.lista-comentarios');
-        lista.innerHTML = '';
-        const comentariosArray = pin.dataset.comentarios.split('|');
-        for(let i=0;i<comentariosArray.length;i+=2){
-          const div = document.createElement('div');
-          div.className = 'comentario';
-          div.innerHTML = `<img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="perfil"><div class="conteudo"><div class="nome">${comentariosArray[i]}</div><div>${comentariosArray[i+1]}</div></div>`;
-          lista.appendChild(div);
-        }
-      };
-    });
-  });
-
-  modalContent.querySelector('.btn-fechar').onclick = () => modal.style.display = 'none';
-  comentariosContent.querySelector('.btn-fechar').onclick = () => comentariosModal.style.display = 'none';
-</script>
-
-</body>
-</html>
-
 
   <script src="script.js"></script>
 </body>
+
 </html>

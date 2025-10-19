@@ -1,7 +1,6 @@
 body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #fff; }
 section { display: none; width: 100%; height: 100vh; }
-#tela-mapa:target, #tela-perfil:target, #tela-denuncia, #tela-denuncia-modal, #tela-comentarios { display: block; }
-#tela-mapa { display: block; }
+section.ativo { display: block; }
 
 /* MAPA */
 .mapa-container {
@@ -27,23 +26,35 @@ section { display: none; width: 100%; height: 100vh; }
 .config-btn { top: 15px; right: 15px; }
 .config-btn img { width: 26px; height: 26px; }
 
-/* PINS */
-.material-symbols-outlined {
-  font-size: 60px; /* Tamanho do ícone */
+/* ICONS */
+.material-symbols-outlined{
   vertical-align: middle;
 }
-.pin { position: absolute; width: 30px; height: 30px; border-radius: 50%; display: flex; justify-content: center; align-items: center; cursor: pointer; }
-.pin img { width: 16px; height: 16px; }
-.p1, .p2 { top: 35%; left: 48%; background-color: #6c757d; }
-.p3, .p4 { top: 50%; left: 52%; background-color: #007bff; }
-.p5, .p6 { top: 40%; left: 60%; background-color: #dc3545; }
-.p7, .p8 { top: 55%; left: 45%; background-color: #28a745; }
+
+/* PINS */
+.pin {
+  color: red;
+  font-size: 40px; /* Tamanho do ícone */
+  vertical-align: middle;
+  position: absolute;
+}
 
 /* MENU */
-.menu { position: fixed; bottom: 0; width: 100%; background-color: #fff; border-top: 1px solid #ddd; display: flex; justify-content: space-around; padding: 6px 0 10px 0; }
-.menu-item { display: flex; flex-direction: column; align-items: center; color: #9b9b9b; font-size: 12px; text-decoration: none; }
-.menu-item.active { color: #007bff; }
-.menu-item img { width: 22px; height: 22px; margin-bottom: 2px; }
+section {
+  display: none; /* todas escondidas por padrão */
+}
+
+section.ativo {
+  display: block; /* apenas a tela ativa aparece */
+}
+
+.menu a {
+  color: gray;
+}
+
+.menu a.active {
+  color: blue; /* destaque do item ativo */
+}
 
 /* PERFIL */
 #tela-perfil { background-color: #f7f7f7; }
