@@ -20,8 +20,8 @@
   <section id="tela-mapa">
     <div class="mapa-container">
 
-      <a href="#tela-denuncia" class="nova-denuncia">
-        <img src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png" alt="Ícone denúncia">
+      <a class="nova-denuncia" onclick="mostrarTela('tela-nova-denuncia', this)">
+        <span class="material-symbols-outlined">add_circle</span>
         Nova denúncia
       </a>
 
@@ -67,8 +67,9 @@
   </section>
 
   <!-- TELA NOVA DENUNCIA -->
-  <section id="tela-denuncia">
+  <section id="tela-nova-denuncia">
     <h2>Nova Denúncia</h2>
+    <a onclick="mostrarTela('tela-mapa', this)" class="btn-voltar">Voltar</a>
     <label>Descrição:</label>
     <textarea rows="4"></textarea>
     <label>Tipo de denúncia:</label>
@@ -80,9 +81,36 @@
     </select>
     <label>Anexar imagem:</label>
     <input type="file">
-    <a href="#tela-mapa" class="btn-enviar">Enviar</a>
-    <a href="#tela-mapa" class="btn-voltar">Voltar</a>
+    <a onclick="mostrarTela('tela-lista-denuncias', this)" class="btn-enviar">Enviar</a>
   </section>
+
+  <!-- TELA LISTA DENUNCIAS -->
+  <section id="tela-lista-denuncias">
+    <h2>Minhas Denúncias</h2>
+    <div class="lista-denuncias-menu">
+      <button class="aba active" data-status="abertas">Abertas</button>
+      <button class="aba" data-status="em-andamento">Em Progresso</button>
+      <button class="aba" data-status="concluidas">Concluídas</button>
+    </div>
+
+    <!-- Exemplo de lista de denúncias -->
+    <div class="lista-denuncias">
+      <div class="denuncia" data-status="abertas">
+        <label>Buraco</label>
+        Rua A
+      </div>
+      <div class="denuncia" data-status="em-andamento">
+        <label>Árvore caída</label>
+        Rua B</div>
+      <div class="denuncia" data-status="concluidas">
+        <label>Alagamento</label>
+        Rua C</div>
+      <div class="denuncia" data-status="abertas">
+        <label>Atividade criminosa</label>
+        Rua D</div>
+    </div>
+  </section>
+
 
   <!-- MODAL DENUNCIA -->
   <section id="tela-denuncia-modal">
@@ -110,19 +138,19 @@
 
   <!-- MENU INFERIOR -->
   <nav class="menu">
-    <a href="#" onclick="mostrarTela('tela-mapa', this)">
-      <span class="material-symbols-outlined">other_houses</span>
+    <a onclick="mostrarTela('tela-mapa', this)">
+      <span class="material-symbols-outlined">explore</span>
       <span>Mapa</span>
     </a>
-    <a href="#" onclick="mostrarTela('tela-busca', this)">
+    <a onclick="mostrarTela('tela-busca', this)">
       <span class="material-symbols-outlined">search</span>
       <span>Buscar</span>
     </a>
-    <a href="#" onclick="mostrarTela('tela-denuncia', this)">
+    <a onclick="mostrarTela('tela-lista-denuncias', this)">
       <span class="material-symbols-outlined">feedback</span>
       <span>Denúncias</span>
     </a>
-    <a href="#" onclick="mostrarTela('tela-mensagens', this)">
+    <a onclick="mostrarTela('tela-mensagens', this)">
       <span class="material-symbols-outlined">mail</span>
       <span>Mensagens</span>
     </a>

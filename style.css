@@ -2,44 +2,7 @@ body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #fff; }
 section { display: none; width: 100%; height: 100vh; }
 section.ativo { display: block; }
 
-/* MAPA */
-.mapa-container {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  background-image: url('/assets/mockup-mapa.png');
-  background-size: cover;
-  background-position: center;
-}
-
-/* BOTÕES */
-.nova-denuncia, .config-btn { position: absolute; cursor: pointer; }
-.nova-denuncia {
-  top: 70px; right: 15px;
-  background-color: white; color: #007bff;
-  border: 1px solid #dcdcdc; border-radius: 8px;
-  padding: 8px 14px; display: flex; align-items: center; gap: 6px;
-  text-decoration: none; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-.nova-denuncia img { width: 16px; height: 16px; }
-.nova-denuncia:hover { background-color: #f8f8f8; }
-.config-btn { top: 15px; right: 15px; }
-.config-btn img { width: 26px; height: 26px; }
-
-/* ICONS */
-.material-symbols-outlined{
-  vertical-align: middle;
-}
-
-/* PINS */
-.pin {
-  color: red;
-  font-size: 40px; /* Tamanho do ícone */
-  vertical-align: middle;
-  position: absolute;
-}
-
-/* MENU */
+/* --------------------- MENU ---------------------*/
 section {
   display: none; /* todas escondidas por padrão */
 }
@@ -48,44 +11,107 @@ section.ativo {
   display: block; /* apenas a tela ativa aparece */
 }
 
+.menu {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+}
+
 .menu a {
   color: gray;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
 }
 
 .menu a.active {
-  color: blue; /* destaque do item ativo */
+  color: royalblue; /* destaque do item ativo */
+}
+
+/* --------------------- TELAS --------------------- */
+#tela-mapa {
+  height: 86vh;
+  margin-bottom: 40px
+}
+
+#tela-busca, #tela-mensagens, #tela-perfil, #tela-nova-denuncia, #tela-lista-denuncias, #tela-denuncia-modal, #tela-comentarios {
+  height: 86vh;
+  width:auto;
+  padding: 20px;
+  background-color: whitesmoke;
+}
+
+/* TELA MAPA */
+.mapa-container {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  background-image: url('/assets/mockup-mapa.png');
+  background-size: cover;
+  background-position: center;
 }
 
 /* PERFIL */
-#tela-perfil { background-color: #f7f7f7; }
-.perfil-header { background-color: #007bff; color: white; padding: 20px; text-align: center; font-size: 20px; }
+/* .perfil-header { background-color: royalblue; color: white; padding: 20px; text-align: center; font-size: 20px; }
 .perfil-content { padding: 20px; }
 .perfil-item { background: white; padding: 15px; border-radius: 10px; margin-bottom: 15px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-.perfil-item h3 { margin: 0 0 5px 0; color: #007bff; }
-.btn-voltar, .btn-enviar, .btn-fechar, .btn-comentarios { display: block; margin: 20px auto; background-color: #007bff; color: white; padding: 10px; border-radius: 8px; text-decoration: none; text-align: center; cursor: pointer; width: 180px; }
-.btn-voltar:hover, .btn-enviar:hover, .btn-fechar:hover, .btn-comentarios:hover { background-color: #005fcc; }
+.perfil-item h3 { margin: 0 0 5px 0; color: royalblue; } */
 
 /* NOVA DENÚNCIA */
-#tela-denuncia { background-color: #f7f7f7; padding: 20px; }
-#tela-denuncia h2 { text-align: center; color: #007bff; margin-bottom: 20px; }
-#tela-denuncia label { display: block; margin-bottom: 5px; font-weight: 600; }
-#tela-denuncia textarea, #tela-denuncia select, #tela-denuncia input[type="file"] { width: 100%; padding: 10px; margin-bottom: 15px; border-radius: 8px; border: 1px solid #ccc; box-sizing: border-box; }
+
+
+/* LISTA DENÚNCIAS */
+#tela-lista-denuncias .lista-denuncias-menu {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+  justify-content: center;
+}
+
+#tela-lista-denuncias .lista-denuncias-menu .aba {
+  padding: 8px 16px;
+  border: 1px solid #007bff;
+  border-radius: 20px;
+  background-color: white;
+  color: #007bff;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#tela-lista-denuncias .lista-denuncias-menu .aba.active {
+  background-color: royalblue;
+  color: white;
+}
+
+#tela-lista-denuncias .lista-denuncias {
+  margin-top: 10px;
+}
+
+#tela-lista-denuncias .lista-denuncias .denuncia {
+  padding: 10px;
+  margin-bottom: 6px;
+  border-radius: 8px;
+  background-color: #f7f7f7;
+  border: 1px solid #ddd;
+}
+
 
 /* MODAL */
-#tela-denuncia-modal, #tela-comentarios { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; z-index: 100; }
+/* #tela-denuncia-modal, #tela-comentarios { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.6); justify-content: center; align-items: center; z-index: 100; }
 .modal-content { background: white; padding: 20px; border-radius: 10px; width: 90%; max-width: 400px; position: relative; }
-.modal-content h3 { color: #007bff; margin-top: 0; }
+.modal-content h3 { color: royalblue; margin-top: 0; }
 .status { font-weight: bold; display: flex; align-items: center; gap: 6px; margin-top: 10px; }
 .status .bolinha { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
-.status.aberto .bolinha { background-color: #007bff; }
+.status.aberto .bolinha { background-color: royalblue; }
 .status.andamento .bolinha { background-color: #FFA500; }
-.status.concluida .bolinha { background-color: #28a745; }
+.status.concluida .bolinha { background-color: #28a745; } */
 
 /* COMENTÁRIOS */
-.comentario { display: flex; gap: 10px; align-items: flex-start; padding: 8px 0; border-bottom: 1px solid #eee; }
+/* .comentario { display: flex; gap: 10px; align-items: flex-start; padding: 8px 0; border-bottom: 1px solid #eee; }
 .comentario img { width: 32px; height: 32px; border-radius: 50%; }
 .comentario .conteudo { font-size: 14px; }
-.comentario .nome { font-weight: bold; margin-bottom: 2px; }
+.comentario .nome { font-weight: bold; margin-bottom: 2px; } */
 
 #tela-pesquisa {
   display: none;
@@ -97,7 +123,7 @@ section.ativo {
 
 #tela-pesquisa h2 {
   text-align: center;
-  color: #007bff;
+  color: royalblue;
   margin-bottom: 20px;
 }
 
@@ -118,7 +144,7 @@ section.ativo {
 .pesquisa-container button {
   padding: 10px 15px;
   border-radius: 8px;
-  background-color: #007bff;
+  background-color: royalblue;
   color: white;
   border: none;
   cursor: pointer;
@@ -143,7 +169,7 @@ section.ativo {
 }
 .resultado-item h4 {
   margin: 0 0 5px 0;
-  color: #007bff;
+  color: royalblue;
 }
 .resultado-item p {
   margin: 2px 0;
@@ -159,7 +185,7 @@ section.ativo {
 
 #tela-pesquisa h2 {
   text-align: center;
-  color: #007bff;
+  color: royalblue;
   margin-bottom: 20px;
 }
 
@@ -180,7 +206,7 @@ section.ativo {
 .pesquisa-container button {
   padding: 10px 15px;
   border-radius: 8px;
-  background-color: #007bff;
+  background-color: royalblue;
   color: white;
   border: none;
   cursor: pointer;
@@ -205,8 +231,58 @@ section.ativo {
 }
 .resultado-item h4 {
   margin: 0 0 5px 0;
-  color: #007bff;
+  color: royalblue;
 }
 .resultado-item p {
   margin: 2px 0;
+}
+
+
+/* --------------------- DETALHES ---------------------*/
+h2 {
+  text-align: center;
+  color: royalblue;
+  margin-bottom: 20px;
+}
+
+label { 
+  display: block; margin-bottom: 5px; 
+  font-weight: 600; 
+}
+
+textarea, select, input[type="file"] {
+  width: 100%; padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* PINS */
+.pin {
+  color: royalblue;
+  font-size: 40px; /* Tamanho do ícone */
+  vertical-align: middle;
+  position: absolute;
+}
+
+/* BOTÕES */
+.nova-denuncia, .config-btn { position: absolute; cursor: pointer; }
+.nova-denuncia {
+  top: 70px; right: 15px;
+  background-color: white; color: royalblue;
+  border: 1px solid #dcdcdc; border-radius: 8px;
+  padding: 8px 14px; display: flex; align-items: center; gap: 6px;
+  text-decoration: none; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.nova-denuncia img { width: 16px; height: 16px; }
+.nova-denuncia:hover { background-color: #f8f8f8; }
+/* .config-btn { top: 15px; right: 15px; }
+.config-btn img { width: 26px; height: 26px; } */
+.btn-voltar, .btn-enviar, .btn-fechar, .btn-comentarios { display: block; margin: 20px auto; background-color: royalblue; color: white; padding: 10px; border-radius: 8px; text-decoration: none; text-align: center; cursor: pointer; width: 180px; }
+.btn-voltar:hover, .btn-enviar:hover, .btn-fechar:hover, .btn-comentarios:hover { background-color: #005fcc; }
+
+/* ICONS */
+.material-symbols-outlined{
+  vertical-align: middle;
 }
