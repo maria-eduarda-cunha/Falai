@@ -101,11 +101,41 @@
   <!-- TELA BUSCA -->
   <section id="tela-busca">
     <h2>Buscar denúncias</h2>
-    <div class="buscar-header">
-      <input type="text" id="campo-busca" placeholder="Digite para buscar entre todas as denúncias">
+    <div class="input-wrapper">
+      <span class="material-symbols-outlined lupa">search</span>
+      <input type="text" id="campo-busca">
     </div>
 
-    <div id="resultados-busca" class="lista-todas-denuncias"></div>
+    <div class="acoes-busca">
+      <!-- Botão Ordenar -->
+      <button class="btn-ordenar">
+        <span class="material-symbols-outlined">swap_vert</span>
+        Ordenar
+      </button>
+      <!-- Botão Filtrar -->
+      <button class="btn-filtrar">
+        <span class="material-symbols-outlined">filter_list</span>
+        Filtrar
+      </button>
+    </div>
+    <div class="lista-denuncias">
+      <div class="card-denuncia">
+        <h3>Buraco</h3>
+        <p>Avenida Paulista, 190, Bela Vista, São Paulo, SP</p>
+      </div>
+      <div class="card-denuncia">
+        <h3>Alagamento</h3>
+        <p>Rua Augusta, 2000, Consolação, São Paulo, SP</p>
+      </div>
+      <div class="card-denuncia">
+        <h3>Atividade Criminosa</h3>
+        <p>Rua Oscar Freire, 80, Jardim Paulista, São Paulo, SP</p>
+      </div>
+      <div class="card-denuncia">
+        <h3>Entulho</h3>
+        <p>Rua Rua Galvão Bueno, 10, Liberdade, São Paulo, SP</p>
+      </div>
+    </div>
   </section>
 
   <!-- TELA LISTA DENUNCIAS -->
