@@ -64,7 +64,7 @@
           <p class="status">Aberta</p>
         </div>
       </div>
-      <a class="btn-comentarios">Comentários</a>
+      <a class="btn-comentarios" onclick="mostrarTela('comentarios-alagamento')">Comentários</a>
       <a onclick="fecharBottomSheet('bottom-sheet-alagamento')" class="btn-fechar-bs">Fechar</a>
     </div>
   </div>
@@ -367,6 +367,24 @@
         A prefeitura realizou a limpeza do local.
       </div>
     </div>
+  </section>
+
+  <!-- COMENTÁRIOS DENUNCIA DE ALAGAMENTO -->
+  <section id="comentarios-alagamento" class="comentarios">
+    <div class="header-comentarios-alagamento">
+      <div class="voltar">
+          <img src="./assets/icon-voltar.png" alt="voltar" class="icon-voltar" onclick="voltarParaMapaComBottomSheetAlagamento()">
+      </div>
+      <h2>Comentários</h2>
+    </div>
+    <div class="comentario-vazio">
+      <p> Essa denúncia ainda não possui comentários. <br> Seja o primeiro a adicionar informações! </p>
+    </div>
+    <div class="comentario-input">
+      <input type="text" placeholder="Digite aqui...">
+      <a class="btn-enviar">Postar</a>
+    </div>
+
   </section>
 
   <!-- MENU INFERIOR -->

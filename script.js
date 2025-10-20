@@ -1,5 +1,7 @@
 // --------------------- TELAS ---------------------
 function mostrarTela(telaId, menuItem) {
+  document.querySelectorAll('.bottom-sheet').forEach(bs => bs.classList.remove('show'));
+
   const telas = document.querySelectorAll('section');
   telas.forEach(tela => tela.classList.remove('ativo'));
 
@@ -98,3 +100,8 @@ abasLista.forEach(aba => {
   });
 });
 
+// --------------------- VOLTAR DOS COMENTARIOS ---------------------
+function voltarParaMapaComBottomSheetAlagamento() {
+  mostrarTela('tela-mapa');          
+  abrirBottomSheet('bottom-sheet-alagamento');     
+}
