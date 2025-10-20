@@ -224,8 +224,8 @@ textarea, select, input[type="file"] {
   position: absolute;
   top: 8px;
   right: 8px;
-  background-color: white;
-  color: #006FFD;
+  background-color: #006FFD;
+  color: white;
   border: 1px solid #dcdcdc;
   border-radius: 8px;
   padding: 8px 16px;
