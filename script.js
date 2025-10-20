@@ -12,6 +12,17 @@ function mostrarTela(telaId, menuItem) {
   const menuItens = document.querySelectorAll('.menu a');
   menuItens.forEach(item => item.classList.remove('active'));
   if (menuItem) menuItem.classList.add('active');
+
+  // ------------------------------
+  // MOSTRA/ESCONDE FOOTER
+  const menu = document.querySelector('.menu');
+  const telasComFooter = ['tela-mapa', 'tela-lista-denuncias', 'tela-notificacoes', 'tela-busca'];
+
+  if (telasComFooter.includes(telaId)) {
+    menu.style.display = 'flex';  // mostra o footer
+  } else {
+    menu.style.display = 'none';  // esconde o footer
+  }
 }
 
 // Mostra a tela de mapa por padrão
@@ -67,7 +78,6 @@ campoBusca.addEventListener('input', e => {
     : '<p>Nenhuma denúncia encontrada</p>';
 });
 
-
 // --------------------- TELA LISTA DENUNCIAS ---------------------
 const abas = document.querySelectorAll('.lista-denuncias-menu .aba');
 const denuncias = document.querySelectorAll('.lista-denuncias .denuncia');
@@ -98,3 +108,38 @@ document.addEventListener('wheel', e => {
 document.addEventListener('gesturestart', e => e.preventDefault());
 document.addEventListener('gesturechange', e => e.preventDefault());
 document.addEventListener('gestureend', e => e.preventDefault());
+
+// Alternar exibição dos campos de endereço
+const radiosEndereco = document.querySelectorAll('input[name="tipo-endereco"]');
+const camposEndereco = document.getElementById('campos-endereco');
+
+radiosEndereco.forEach(radio => {
+  radio.addEventListener('change', () => {
+    if (radio.value === 'informar') {
+      camposEndereco.style.display = 'block';
+    } else {
+      camposEndereco.style.display = 'none';
+    }
+  });
+});
+
+// Inicializa o estado correto ao carregar
+if (document.querySelector('input[name="tipo-endereco"]:checked').value === 'atual') {
+  camposEndereco.style.display = 'none';
+}
+
+function criarDenunciaMock() {
+  const mapa = document.getElementById('mapa');
+
+  // Cria um novo pin com posição fixa
+  const pin = document.createElement('span');
+  pin.classList.add('material-symbols-outlined', 'pin');
+  pin.style.top = '415px';
+  pin.style.left = '530px';
+  pin.textContent = 'fmd_bad';
+
+  mapa.appendChild(pin);
+
+  // Volta para a tela de mapa
+  mostrarTela('tela-mapa');
+}

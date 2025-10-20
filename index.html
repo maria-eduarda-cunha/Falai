@@ -7,7 +7,8 @@
   <title>Falaí - Protótipo Interativo</title>
 
   <!-- ICONS -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" />
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css">
@@ -17,38 +18,37 @@
 <body>
 
   <!-- TELA MAPA -->
-<section id="tela-mapa">
-  <header class="app-header">
-    <img src="/assets/logo.png" alt="Logo do app" class="logo-app">
-    <span class="material-symbols-outlined">settings</span>
-  </header>
-  <div class="mapa-container">
-    <div class="mapa-inner" id="mapa">
-      <img src="/assets/mockup-mapa.png" alt="Mapa">
+  <section id="tela-mapa">
+    <header class="app-header">
+      <img src="/assets/logo.png" alt="Logo do app" class="logo-app">
+      <span class="material-symbols-outlined">settings</span>
+    </header>
+    <div class="mapa-container">
+      <div class="mapa-inner" id="mapa">
+        <img src="/assets/mockup-mapa.png" alt="Mapa">
 
-      <!-- PINS -->
-      <span class="material-symbols-outlined pin" style="top: 300px; left: 500px;">fmd_bad</span>
-      <span class="material-symbols-outlined pin" style="top: 600px; left: 530px;">fmd_bad</span>
-      <span class="material-symbols-outlined pin" style="top: 650px; left: 590px;">fmd_bad</span>
-      <span class="material-symbols-outlined pin" style="top: 400px; left: 410px;">fmd_bad</span>
+        <!-- PINS -->
+        <span class="material-symbols-outlined pin" style="top: 300px; left: 360px;">fmd_bad</span>
+        <span class="material-symbols-outlined pin" style="top: 650px; left: 590px;">fmd_bad</span>
+      </div>
+
+      <a class="nova-denuncia" onclick="mostrarTela('tela-nova-denuncia', this)">
+        <span class="material-symbols-outlined">add_circle</span>
+        Nova denúncia
+      </a>
     </div>
-
-    <a class="nova-denuncia" onclick="mostrarTela('tela-nova-denuncia', this)">
-      <span class="material-symbols-outlined">add_circle</span>
-      Nova denúncia
-    </a>
-  </div>
-</section>
-
+  </section>
 
 
   <!-- TELA NOVA DENUNCIA -->
   <section id="tela-nova-denuncia">
-    <h2>Nova Denúncia</h2>
-    <a onclick="mostrarTela('tela-mapa', this)" class="btn-voltar">Voltar</a>
-    <label>Descrição:</label>
-    <textarea rows="4"></textarea>
-    <label>Tipo de denúncia:</label>
+    <div class="header-tela-nova-denuncia">
+      <div class="voltar">
+        <img src="assets/icon-voltar.png" alt="voltar" class="icon-voltar" onclick="mostrarTela('tela-mapa', this)">
+      </div>
+      <p>Nova Denúncia</p>
+    </div>
+    <label>Tipo de denúncia:*</label>
     <select>
       <option>Atividade Criminosa</option>
       <option>Árvore Caída</option>
@@ -56,9 +56,46 @@
       <option>Buraco</option>
       <option>Entulho</option>
     </select>
+    <div class="endereco-container">
+      <label>Endereço:*</label>
+      <div class="opcao-endereco">
+        <label>
+          <input type="radio" name="tipo-endereco" value="atual" checked>
+          Minha localização atual
+        </label>
+        <label>
+          <input type="radio" name="tipo-endereco" value="informar">
+          Informar endereço
+        </label>
+      </div>
+      <div class="campos-endereco" id="campos-endereco">
+        <div class="campo">
+          <label>Logradouro:</label>
+          <input type="text">
+        </div>
+        <div class="campo">
+          <label>Número:</label>
+          <input type="text">
+        </div>
+        <div class="campo">
+          <label>Bairro:</label>
+          <input type="text">
+        </div>
+        <div class="campo">
+          <label>Cidade:</label>
+          <input type="text">
+        </div>
+        <div class="campo">
+          <label>Estado:</label>
+          <input type="text">
+        </div>
+      </div>
+    </div>
+    <label>Descrição:*</label>
+    <textarea rows="4"></textarea>
     <label>Anexar imagem:</label>
     <input type="file">
-    <a onclick="mostrarTela('tela-lista-denuncias', this)" class="btn-enviar">Enviar</a>
+    <a onclick="criarDenunciaMock()" class="btn-enviar">Criar denúncia</a>
   </section>
 
   <!-- TELA BUSCA -->

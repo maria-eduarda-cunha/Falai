@@ -1,4 +1,4 @@
-body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #fff; touch-action: none; overscroll-behavior: none; }
+body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #fff; }
 section { display: none; width: 100%; height: 100vh; }
 section.ativo { display: block; }
 
@@ -39,18 +39,18 @@ section.ativo {
 /* --------------------- TELAS --------------------- */
 #tela-mapa {
   height: 86vh;
-  margin-bottom: 40px
+  margin-bottom: 40px;
+  touch-action: none;
 }
 
 #tela-busca, #tela-notificacoes, #tela-perfil, #tela-nova-denuncia, #tela-lista-denuncias, #tela-denuncia-modal, #tela-comentarios {
   height: 86vh;
   width:auto;
-  padding: 20px;
+  padding: 24px;
   background-color: whitesmoke;
 }
 
 /* TELA MAPA */
-
 .app-header {
   height: 64px;
   display: flex;
@@ -65,7 +65,6 @@ section.ativo {
   right: 0;
   z-index: 20;
 }
-
 
 header .material-symbols-outlined {
   color: #006FFD; 
@@ -111,6 +110,79 @@ header .material-symbols-outlined {
 .pin:hover {
   color: red;
   transform: scale(1.2);
+}
+
+/* TELA NOVA DENÚNCIA */
+#tela-nova-denuncia {
+  background-color: white;
+}
+
+#tela-nova-denuncia h2 {
+ color: black;
+}
+
+.header-tela-nova-denuncia {
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
+  font-weight: bold;
+  align-items: center;
+  gap: 72px;
+  margin-bottom: 40px;
+}
+
+#tela-nova-denuncia select {
+  padding: 10px 40px 10px 10px; /* espaço para a seta */
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  appearance: none; /* remove a seta nativa */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%23000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 16px;
+  cursor: pointer;
+}
+
+.endereco-container {
+  margin-top: 16px;
+  margin-bottom: 24px;
+}
+
+.opcao-endereco {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom:16px;
+}
+
+.opcao-endereco label {
+  font-weight: normal;
+}
+
+.campos-endereco label {
+  font-size: 14px;
+  font-weight: 350px;
+}
+
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+}
+
+.campo input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.campo input:focus {
+  border-color: #007bff;
 }
 
 /* TELA BUSCA */
@@ -241,8 +313,8 @@ textarea, select, input[type="file"] {
 .nova-denuncia:hover { background-color: #f8f8f8; }
 /* .config-btn { top: 15px; right: 15px; }
 .config-btn img { width: 26px; height: 26px; } */
-.btn-voltar, .btn-enviar, .btn-fechar, .btn-comentarios { display: block; margin: 20px auto; background-color: royalblue; color: white; padding: 10px; border-radius: 8px; text-decoration: none; text-align: center; cursor: pointer; width: 180px; }
-.btn-voltar:hover, .btn-enviar:hover, .btn-fechar:hover, .btn-comentarios:hover { background-color: #005fcc; }
+.btn-enviar, .btn-fechar, .btn-comentarios { display: block; margin: 20px auto; background-color: royalblue; color: white; padding: 10px; border-radius: 8px; text-decoration: none; text-align: center; cursor: pointer; width: 100%; box-sizing: border-box;}
+.btn-enviar:hover, .btn-fechar:hover, .btn-comentarios:hover { background-color: #005fcc; }
 
 /* ICONS */
 .material-symbols-outlined{
