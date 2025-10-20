@@ -39,6 +39,35 @@
     </div>
   </section>
 
+  <!-- BOTTOM SHEET DENUNCIA -->
+<div id="bottom-sheet" class="bottom-sheet">
+  <div class="bs-header">
+    <span class="material-symbols-outlined close-bs" onclick="fecharBottomSheet()">close</span>
+  </div>
+
+  <div class="info-denuncia">
+    <div class="header-denuncia">
+      <p class="titulo-denuncia">Alagamento</p>
+      <p class="endereco-denuncia">Rua Honório, 250, Boa Visão, São Paulo, SP</p>
+    </div>
+    <div class="descricao-denuncia">
+      <p class="descricao">DESCRIÇÃO</p>
+      <p class="descricao-content">
+        Ao chover, essa rua alaga nesse trecho.
+      </p>
+    </div>
+    <div class="status-container">
+      <p class="titulo-status">STATUS</p>
+      <div class="status-row">
+        <div class="status-circulo"></div>
+        <p class="status">Aguardando contato</p>
+      </div>
+    </div>
+    <a onclick="mostrarTela('tela-comentarios', this)" class="btn-comentarios">Comentários</a>
+    <a onclick="fecharBottomSheet()" class="btn-fechar-bs">Fechar</a>
+  </div>
+</div>
+
 
   <!-- TELA NOVA DENUNCIA -->
   <section id="tela-nova-denuncia">
@@ -141,7 +170,7 @@
   <!-- TELA DENUNCIA BURACO -->
   <section id="tela-denuncia-buraco">
     <div class="header-tela-denuncia-buraco">
-      <div class="voltar" >
+      <div class="voltar">
         <img src="assets/icon-voltar.png" alt="voltar" class="icon-voltar" onclick="mostrarTela('tela-busca', this)">
       </div>
     </div>
@@ -153,7 +182,9 @@
       </div>
       <div class="descricao-denuncia">
         <p class="descricao"> DESCRIÇÃO </p>
-        <p class="descricao-content">Há um buraco grande e profundo no meio da rua, próximo ao meio-fio, que representa risco para pedestres, ciclistas e motoristas. Durante períodos de chuva, acumula água, tornando o local ainda mais perigoso. Necessita reparo urgente pela prefeitura para garantir segurança e fluidez no trânsito.</p>
+        <p class="descricao-content">Há um buraco grande e profundo no meio da rua, próximo ao meio-fio, que representa
+          risco para pedestres, ciclistas e motoristas. Durante períodos de chuva, acumula água, tornando o local ainda
+          mais perigoso. Necessita reparo urgente pela prefeitura para garantir segurança e fluidez no trânsito.</p>
       </div>
       <div class="status-container">
         <p class="titulo-status">STATUS</p>

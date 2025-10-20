@@ -1,64 +1,22 @@
 // --------------------- TELAS ---------------------
 function mostrarTela(telaId, menuItem) {
-  // Esconde todas as telas
   const telas = document.querySelectorAll('section');
   telas.forEach(tela => tela.classList.remove('ativo'));
 
-  // Mostra a tela selecionada
   const tela = document.getElementById(telaId);
   if (tela) tela.classList.add('ativo');
 
-  // Atualiza o menu ativo
   const menuItens = document.querySelectorAll('.menu a');
   menuItens.forEach(item => item.classList.remove('active'));
   if (menuItem) menuItem.classList.add('active');
 
-  // ------------------------------
-  // MOSTRA/ESCONDE FOOTER
   const menu = document.querySelector('.menu');
   const telasComFooter = ['tela-mapa', 'tela-lista-denuncias', 'tela-notificacoes', 'tela-busca'];
-
-  if (telasComFooter.includes(telaId)) {
-    menu.style.display = 'flex';  // mostra o footer
-  } else {
-    menu.style.display = 'none';  // esconde o footer
-  }
+  menu.style.display = telasComFooter.includes(telaId) ? 'flex' : 'none';
 }
 
 // Mostra a tela de mapa por padrão
 mostrarTela('tela-mapa', document.querySelector('.menu a'));
-
-
-// --------------------- TELA LISTA DENUNCIAS ---------------------
-const abas = document.querySelectorAll('.lista-denuncias-menu .aba');
-const denuncias = document.querySelectorAll('.lista-denuncias .denuncia');
-
-function filtrarDenuncias(status) {
-  denuncias.forEach(d => {
-    d.style.display = d.dataset.status === status ? 'block' : 'none';
-  });
-}
-
-// Inicializa com “Abertas” visíveis
-filtrarDenuncias('abertas');
-
-abas.forEach(aba => {
-  aba.addEventListener('click', () => {
-    abas.forEach(a => a.classList.remove('active'));
-    aba.classList.add('active');
-
-    filtrarDenuncias(aba.dataset.status);
-  });
-});
-
-// --------------------- BLOQUEAR ZOOM NO MAPA ---------------------
-document.addEventListener('wheel', e => {
-  if (e.ctrlKey) e.preventDefault(); // bloqueia zoom Ctrl+scroll
-}, { passive: false });
-
-document.addEventListener('gesturestart', e => e.preventDefault());
-document.addEventListener('gesturechange', e => e.preventDefault());
-document.addEventListener('gestureend', e => e.preventDefault());
 
 // --------------------- CAMPOS DE ENDEREÇO ---------------------
 const radiosEndereco = document.querySelectorAll('input[name="tipo-endereco"]');
@@ -69,12 +27,21 @@ function atualizarCamposEndereco() {
   camposEndereco.style.display = (selecionado === 'informar') ? 'block' : 'none';
 }
 
-// Inicializa o estado ao carregar
 document.addEventListener('DOMContentLoaded', atualizarCamposEndereco);
-
-// Atualiza ao mudar o radio
 radiosEndereco.forEach(radio => radio.addEventListener('change', atualizarCamposEndereco));
 
+// --------------------- BOTTOM SHEET ---------------------
+const bottomSheet = document.getElementById('bottom-sheet');
+
+function abrirBottomSheet() {
+  bottomSheet.classList.add('show');
+}
+
+function fecharBottomSheet() {
+  bottomSheet.classList.remove('show');
+}
+
+// --------------------- CRIAR PIN MOCK ---------------------
 function criarDenunciaMock() {
   const mapa = document.getElementById('mapa');
 
@@ -85,8 +52,17 @@ function criarDenunciaMock() {
   pin.style.left = '530px';
   pin.textContent = 'fmd_bad';
 
+  // Ao clicar no pin, abre o bottom sheet já preenchido no HTML
+  pin.addEventListener('click', abrirBottomSheet);
+
   mapa.appendChild(pin);
 
   // Volta para a tela de mapa
   mostrarTela('tela-mapa');
 }
+
+// --------------------- BLOQUEAR ZOOM NO MAPA ---------------------
+document.addEventListener('wheel', e => { if (e.ctrlKey) e.preventDefault(); }, { passive: false });
+document.addEventListener('gesturestart', e => e.preventDefault());
+document.addEventListener('gesturechange', e => e.preventDefault());
+document.addEventListener('gestureend', e => e.preventDefault());

@@ -112,6 +112,40 @@ header .material-symbols-outlined {
   transform: scale(1.2);
 }
 
+/* BOTTOM SHEET */
+.bottom-sheet {
+  position: fixed;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box; 
+  background: #fff;
+  box-shadow: 0 -4px 12px rgba(0,0,0,0.3);
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+  transition: bottom 0.3s ease;
+  z-index: 1000;
+  max-height: 80%;
+  overflow-y: auto;
+  padding: 16px;
+}
+
+.bottom-sheet.show {
+  bottom: 0;
+}
+
+.bs-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close-bs {
+  font-size: 28px;
+  cursor: pointer;
+}
+
+
 /* TELA NOVA DENÚNCIA */
 #tela-nova-denuncia {
   background-color: white;
@@ -491,8 +525,26 @@ textarea, select, input[type="file"] {
 .nova-denuncia:hover { background-color: #f8f8f8; }
 /* .config-btn { top: 15px; right: 15px; }
 .config-btn img { width: 26px; height: 26px; } */
-.btn-enviar, .btn-fechar, .btn-comentarios { display: block; margin: 20px auto; background-color: royalblue; color: white; padding: 10px; border-radius: 8px; text-decoration: none; text-align: center; cursor: pointer; width: 100%; box-sizing: border-box;}
+.btn-enviar, .btn-fechar, .btn-comentarios { display: block; background-color: royalblue; color: white; padding: 10px; border-radius: 8px; text-decoration: none; text-align: center; cursor: pointer; width: 100%; box-sizing: border-box;}
 .btn-enviar:hover, .btn-fechar:hover, .btn-comentarios:hover { background-color: #005fcc; }
+.btn-fechar-bs {
+  display: block;
+  background-color: #fff; /* fundo branco */
+  color: royalblue;       /* texto azul */
+  padding: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid royalblue; /* opcional: contorno azul */
+}
+
+.btn-fechar-bs:hover {
+  background-color: #f0f8ff; /* leve azul ao passar o mouse */
+}
+
 
 /* ICONS */
 .material-symbols-outlined{
