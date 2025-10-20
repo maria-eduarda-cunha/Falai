@@ -17,6 +17,19 @@
 
 <body>
 
+  <!-- TELA LOGIN -->
+  <section id="tela-login">
+    <img src="./assets/logo.svg" alt="Logo do app" style="width: 200px">
+    
+    <div class="input-wrapper"><label>
+      <input type="text" id="nome_user" name="nome_user" placeholder="Usuário" required>
+      <input type="password" id="pwd_user" name="pwd_user" placeholder="Senha" required>
+
+      <a onclick="login()" class="btn-enviar">Criar denúncia</a>
+    </label></div>
+
+  </section>
+
   <!-- TELA MAPA -->
   <section id="tela-mapa">
     <header class="app-header">
@@ -479,7 +492,7 @@
 
     <div class="conteudo-configuracoes">
       <div class="info-usuario">
-        <p><strong>Nome do usuário</strong></p>
+        <p><strong id="nome-usuario"></strong></p>
       </div>
 
       <ul class="lista-links-config">
@@ -488,7 +501,7 @@
         <li><a href="#" onclick="alert('Redirecionar para SAC')">Atendimento ao Usuário (SAC)</a></li>
       </ul>
 
-      <button class="btn-deslogar" onclick="alert('Usuário deslogado (mock)')">Sair da conta</button>
+      <button class="btn-deslogar" onclick="logout()">Sair da conta</button>
     </div>
   </section>
 

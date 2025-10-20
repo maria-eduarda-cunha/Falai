@@ -1,6 +1,18 @@
-body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #fff; }
-section { display: none; width: 100%; height: 100vh; }
-section.ativo { display: block; }
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff;
+}
+
+section {
+  display: none;
+  width: 100%;
+  height: 100vh;
+}
+
+section.ativo {
+  display: block;
+}
 
 /* --------------------- MENU ---------------------*/
 section {
@@ -43,9 +55,18 @@ section.ativo {
   touch-action: none;
 }
 
-#tela-configuracoes, #tela-denuncia-buraco, #tela-busca, #tela-notificacoes, #tela-perfil, #tela-nova-denuncia, #tela-lista-denuncias, #tela-denuncia-modal, .comentarios {
+#tela-configuracoes,
+#tela-denuncia-buraco,
+#tela-busca,
+#tela-notificacoes,
+#tela-perfil,
+#tela-nova-denuncia,
+#tela-lista-denuncias,
+#tela-denuncia-modal,
+.comentarios,
+#tela-login {
   height: 86vh;
-  width:auto;
+  width: auto;
   padding: 24px;
   background-color: whitesmoke;
 }
@@ -74,9 +95,9 @@ section.ativo {
 }
 
 header .material-symbols-outlined {
-  color: #006FFD; 
-  font-size: 28px; 
-  cursor: pointer; 
+  color: #006FFD;
+  font-size: 28px;
+  cursor: pointer;
 }
 
 .mapa-container {
@@ -126,9 +147,9 @@ header .material-symbols-outlined {
   left: 0;
   width: 100%;
   max-width: 100vw;
-  box-sizing: border-box; 
+  box-sizing: border-box;
   background: #fff;
-  box-shadow: 0 -4px 12px rgba(0,0,0,0.3);
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.3);
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
   transition: bottom 0.3s ease;
@@ -159,7 +180,7 @@ header .material-symbols-outlined {
 }
 
 #tela-nova-denuncia h2 {
- color: black;
+  color: black;
 }
 
 .header-tela-nova-denuncia {
@@ -196,7 +217,7 @@ header .material-symbols-outlined {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-bottom:16px;
+  margin-bottom: 16px;
 }
 
 .opcao-endereco label {
@@ -236,8 +257,9 @@ header .material-symbols-outlined {
 .input-wrapper {
   position: relative;
   width: 100%;
-  max-width: 600px;
+  max-width: 100%;
   margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .input-wrapper .lupa {
@@ -256,19 +278,19 @@ header .material-symbols-outlined {
   border: none;
   border-radius: 12px;
   background-color: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   font-size: 1rem;
 }
 
 
 #campo-busca {
-  width: 90%;
+  width: 100%;
   max-width: 600px;
   padding: 12px 16px;
   border: none;
   border-radius: 12px;
   background-color: #fff;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   font-size: 1rem;
 }
 
@@ -279,7 +301,7 @@ header .material-symbols-outlined {
   width: 90%;
   max-width: 600px;
   border-radius: 10px;
-  box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
 }
 
 /* BUSCA DENÚNCIAS */
@@ -334,7 +356,7 @@ header .material-symbols-outlined {
   background-color: white;
   border-radius: 10px;
   padding: 12px;
-  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -372,7 +394,7 @@ header .material-symbols-outlined {
 }
 
 .info-denuncia p {
-  margin:0;
+  margin: 0;
 }
 
 .header-denuncia {
@@ -471,7 +493,8 @@ header .material-symbols-outlined {
 /* NOTIFICAÇÕES */
 #tela-notificacoes {
   overflow-y: auto;
-  padding-bottom: 80px; /* espaço extra para o menu fixo */
+  padding-bottom: 80px;
+  /* espaço extra para o menu fixo */
 }
 
 #tela-notificacoes .lista-notificacoes {
@@ -486,7 +509,7 @@ header .material-symbols-outlined {
   background-color: white;
   border-radius: 12px;
   padding: 14px 16px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -496,7 +519,7 @@ header .material-symbols-outlined {
 
 #tela-notificacoes .notificacao:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 #tela-notificacoes .notificacao label {
@@ -514,15 +537,15 @@ header .material-symbols-outlined {
 }
 
 #tela-notificacoes .notificacao[data-status="abertas"] {
-  border-left-color: #006FFD; 
+  border-left-color: #006FFD;
 }
 
 #tela-notificacoes .notificacao[data-status="em-andamento"] {
-  border-left-color: #FFB000; 
+  border-left-color: #FFB000;
 }
 
 #tela-notificacoes .notificacao[data-status="concluidas"] {
-  border-left-color: #28A745; 
+  border-left-color: #28A745;
 }
 
 /* COMENTÁRIO */
@@ -532,7 +555,8 @@ section.comentarios {
   height: 100vh;
   overflow: hidden;
   position: relative;
-  padding-bottom: 60px; /* espaço para o input fixo */
+  padding-bottom: 60px;
+  /* espaço para o input fixo */
 }
 
 section.comentarios.ativo {
@@ -549,7 +573,7 @@ section.comentarios.ativo {
   margin-bottom: 40px;
 }
 
-.header-comentarios-alagamento h2{
+.header-comentarios-alagamento h2 {
   margin: 0px;
 }
 
@@ -578,10 +602,11 @@ section.comentarios.ativo {
   gap: 8px;
   padding: 12px 16px;
   background: white;
-  box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
   z-index: 10;
   box-sizing: border-box;
-  height: 60px; /* altura fixa para controle */
+  height: 60px;
+  /* altura fixa para controle */
 }
 
 .comentarios .btn-enviar {
@@ -589,14 +614,17 @@ section.comentarios.ativo {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 36px; /* mesma altura do input para ficar alinhado */
-  cursor: pointer; /* opcional, para feedback visual */
+  height: 36px;
+  /* mesma altura do input para ficar alinhado */
+  cursor: pointer;
+  /* opcional, para feedback visual */
 }
 
 .comentarios input {
   flex-grow: 1;
   min-width: 0;
-  height: 36px; /* altura confortável para input */
+  height: 36px;
+  /* altura confortável para input */
   box-sizing: border-box;
 }
 
@@ -605,7 +633,7 @@ section.comentarios.ativo {
   border-radius: 10px;
   padding: 12px 16px;
   margin-bottom: 12px;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
   font-size: 0.95rem;
   color: #333;
   line-height: 1.4;
@@ -621,7 +649,8 @@ section.comentarios.ativo {
 
 /* --------------------- TELA DE CONFIGURAÇÕES ---------------------*/
 #tela-configuracoes {
-  display: none; /* padrão oculto */
+  display: none;
+  /* padrão oculto */
   background-color: #fff;
   padding: 24px;
   height: 86vh;
@@ -638,15 +667,17 @@ section.comentarios.ativo {
   align-items: center;
   gap: 64px;
   margin-bottom: 32px;
-  height: 64px;                     
-  background-color: white;   
+  height: 64px;
+  background-color: white;
   box-sizing: border-box;
 }
 
 .voltar {
-  display: flex;             /* faltava isso para o align-items funcionar */
+  display: flex;
+  /* faltava isso para o align-items funcionar */
   align-items: center;
-  cursor: pointer;           /* para feedback visual */
+  cursor: pointer;
+  /* para feedback visual */
 }
 
 .header-configuracoes h2 {
@@ -672,7 +703,7 @@ section.comentarios.ativo {
 .info-usuario {
   background-color: #f7f9fc;
   border-radius: 10px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
   font-weight: 600;
   font-size: 1.5rem;
   color: #222;
@@ -713,7 +744,7 @@ section.comentarios.ativo {
   font-size: 1rem;
   width: 100%;
   max-width: 400px;
-  box-shadow: 0 2px 6px rgba(0,111,253,0.5);
+  box-shadow: 0 2px 6px rgba(0, 111, 253, 0.5);
   transition: background-color 0.3s ease;
 }
 
@@ -725,19 +756,24 @@ section.comentarios.ativo {
 .logo-app {
   width: 140px;
 }
+
 h2 {
   text-align: center;
   color: #006FFD;
   margin-bottom: 20px;
 }
 
-label { 
-  display: block; margin-bottom: 5px; 
-  font-weight: 600; 
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
 }
 
-textarea, select, input[type="file"] {
-  width: 100%; padding: 10px;
+textarea,
+select,
+input[type="file"] {
+  width: 100%;
+  padding: 10px;
   margin-bottom: 15px;
   border-radius: 8px;
   border: 1px solid #ccc;
@@ -753,7 +789,11 @@ textarea, select, input[type="file"] {
 }
 
 /* BOTÕES */
-.nova-denuncia, .config-btn { position: absolute; cursor: pointer; }
+.nova-denuncia,
+.config-btn {
+  position: absolute;
+  cursor: pointer;
+}
 
 .nova-denuncia {
   position: absolute;
@@ -768,20 +808,47 @@ textarea, select, input[type="file"] {
   align-items: center;
   gap: 8px;
   text-decoration: none;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   z-index: 10;
 }
 
-.nova-denuncia img { width: 16px; height: 16px; }
-.nova-denuncia:hover { background-color: #f8f8f8; }
+.nova-denuncia img {
+  width: 16px;
+  height: 16px;
+}
+
+.nova-denuncia:hover {
+  background-color: #f8f8f8;
+}
+
 /* .config-btn { top: 15px; right: 15px; }
 .config-btn img { width: 26px; height: 26px; } */
-.btn-enviar, .btn-fechar, .btn-comentarios { display: block; background-color: royalblue; color: white; padding: 10px; border-radius: 8px; text-decoration: none; text-align: center; cursor: pointer; width: 100%; box-sizing: border-box;}
-.btn-enviar:hover, .btn-fechar:hover, .btn-comentarios:hover { background-color: #005fcc; }
+.btn-enviar,
+.btn-fechar,
+.btn-comentarios {
+  display: block;
+  background-color: royalblue;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+}
+
+.btn-enviar:hover,
+.btn-fechar:hover,
+.btn-comentarios:hover {
+  background-color: #005fcc;
+}
+
 .btn-fechar-bs {
   display: block;
-  background-color: #fff; 
-  color: royalblue;      
+  background-color: #fff;
+  color: royalblue;
   padding: 10px;
   border-radius: 8px;
   text-decoration: none;
@@ -796,8 +863,17 @@ textarea, select, input[type="file"] {
   background-color: #f0f8ff;
 }
 
+.input-wrapper input {
+  width: 100%;
+  box-sizing: border-box; /* garante que padding e border fiquem dentro da largura */
+  margin: 10px 0; /* só margem vertical para evitar somar lateralmente */
+}
 
+#tela-login .input-wrapper a {
+  margin-top: 24px;
+}
 /* ICONS */
-.material-symbols-outlined{
+.material-symbols-outlined {
   vertical-align: middle;
 }
+

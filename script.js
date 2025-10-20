@@ -39,10 +39,31 @@ function voltarTelaAnterior() {
   }
 }
 
+// Mostra a tela de login por padrão
+mostrarTela('tela-login', document.querySelector('.menu a'));
 
+// --------------------- LOGIN ---------------------
+function login() {
+  const nomeUsuario = document.getElementById('nome_user').value;
+  const senhaUsuario = document.getElementById('pwd_user').value;
+  if (nomeUsuario != null, senhaUsuario != null)
+  console.log('Nome do usuário:', nomeUsuario);
 
-// Mostra a tela de mapa por padrão
-mostrarTela('tela-mapa', document.querySelector('.menu a'));
+  localStorage.setItem('nomeUsuario', nomeUsuario);
+
+  mostrarTela('tela-mapa');
+}
+
+const nomeUsuario = localStorage.getItem('nomeUsuario');
+if (nomeUsuario) {
+  document.getElementById('nome-usuario').textContent = nomeUsuario;
+}
+
+// --------------------- LOGOUT ---------------------
+function logout() {
+  localStorage.clear();
+  mostrarTela('tela-login');
+}
 
 // --------------------- CAMPOS DE ENDEREÇO ---------------------
 const radiosEndereco = document.querySelectorAll('input[name="tipo-endereco"]');
