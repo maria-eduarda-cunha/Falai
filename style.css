@@ -1,4 +1,4 @@
-body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #fff; }
+body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #fff; touch-action: none; overscroll-behavior: none; }
 section { display: none; width: 100%; height: 100vh; }
 section.ativo { display: block; }
 
@@ -12,9 +12,16 @@ section.ativo {
 }
 
 .menu {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 56px; /* altura do menu */
   background-color: white;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  z-index: 20;
+  padding-inline: 16px;
 }
 
 .menu a {
@@ -26,7 +33,7 @@ section.ativo {
 }
 
 .menu a.active {
-  color: royalblue; /* destaque do item ativo */
+  color: #006FFD; /* destaque do item ativo */
 }
 
 /* --------------------- TELAS --------------------- */
@@ -43,16 +50,40 @@ section.ativo {
 }
 
 /* TELA MAPA */
+
+.app-header {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  background-color: white;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+}
+
+
+header .material-symbols-outlined {
+  color: #006FFD; 
+  font-size: 28px; 
+  cursor: pointer; 
+}
+
 .mapa-container {
   position: relative;
+  margin-top: 64px;
   width: 100%;
-  height: 90vh;
+  height: calc(100vh - 64px);
   overflow: hidden;
-  background-color: #eee;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 
 .mapa-inner {
   position: relative;
@@ -62,13 +93,16 @@ section.ativo {
 
 .mapa-inner img {
   width: 1000px; /* largura base */
-  height: auto;
+  height: 100vh;
   display: block;
+  pointer-events: none;
+  user-select: none;
+  touch-action: none;
 }
 
 .pin {
   position: absolute;
-  color: royalblue;
+  color: red;
   font-size: 40px;
   cursor: pointer;
   transition: transform 0.3s ease;
@@ -118,16 +152,16 @@ section.ativo {
 
 #tela-lista-denuncias .lista-denuncias-menu .aba {
   padding: 8px 16px;
-  border: 1px solid #007bff;
+  border: 1px solid #006FFD;
   border-radius: 20px;
   background-color: white;
-  color: #007bff;
+  color: #006FFD;
   cursor: pointer;
   font-weight: bold;
 }
 
 #tela-lista-denuncias .lista-denuncias-menu .aba.active {
-  background-color: royalblue;
+  background-color: #006FFD;
   color: white;
 }
 
@@ -158,7 +192,7 @@ section.ativo {
 /* --------------------- DETALHES ---------------------*/
 h2 {
   text-align: center;
-  color: royalblue;
+  color: #006FFD;
   margin-bottom: 20px;
 }
 
@@ -177,7 +211,7 @@ textarea, select, input[type="file"] {
 
 /* PINS */
 .pin {
-  color: royalblue;
+  color: red;
   font-size: 40px; /* Tamanho do ícone */
   vertical-align: middle;
   position: absolute;
@@ -185,13 +219,24 @@ textarea, select, input[type="file"] {
 
 /* BOTÕES */
 .nova-denuncia, .config-btn { position: absolute; cursor: pointer; }
+
 .nova-denuncia {
-  top: 70px; right: 15px;
-  background-color: white; color: royalblue;
-  border: 1px solid #dcdcdc; border-radius: 8px;
-  padding: 8px 14px; display: flex; align-items: center; gap: 6px;
-  text-decoration: none; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: white;
+  color: #006FFD;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 10;
 }
+
 .nova-denuncia img { width: 16px; height: 16px; }
 .nova-denuncia:hover { background-color: #f8f8f8; }
 /* .config-btn { top: 15px; right: 15px; }

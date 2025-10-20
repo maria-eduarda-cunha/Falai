@@ -90,18 +90,11 @@ abas.forEach(aba => {
   });
 });
 
-// --------------------- ZOOM NO MAPA ---------------------
-let zoom = 1;
-const mapa = document.getElementById('mapa');
-
+// --------------------- BLOQUEAR ZOOM NO MAPA ---------------------
 document.addEventListener('wheel', e => {
-  if (!mapa.closest('#tela-mapa.ativo')) return; // só se mapa visível
-  e.preventDefault();
-
-  if (e.deltaY < 0) zoom *= 1.1; // zoom in
-  else zoom /= 1.1; // zoom out
-
-  zoom = Math.min(Math.max(zoom, 0.5), 3); // limita zoom
-  mapa.style.transform = `scale(${zoom})`;
+  if (e.ctrlKey) e.preventDefault(); // bloqueia zoom Ctrl+scroll
 }, { passive: false });
 
+document.addEventListener('gesturestart', e => e.preventDefault());
+document.addEventListener('gesturechange', e => e.preventDefault());
+document.addEventListener('gestureend', e => e.preventDefault());
