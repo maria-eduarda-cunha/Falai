@@ -28,55 +28,6 @@ function mostrarTela(telaId, menuItem) {
 // Mostra a tela de mapa por padrão
 mostrarTela('tela-mapa', document.querySelector('.menu a'));
 
-// --------------------- TELA BUSCAR ---------------------
-const campoBusca = document.getElementById('campo-busca');
-const resultados = document.getElementById('resultados-busca');
-
-// Simulação de denúncias globais
-const todas_denuncias = [
-  { titulo: 'Entulho - Parque Ibirapuera', autor: 'Maria Eduarda', status:'Concluída' },
-  { titulo: 'Buraco - Avenida Paulista', autor: 'Rodrigo', status:'Concluída' },
-  { titulo: 'Alagamento - Rua Normandia', autor: 'Júlia', status:'Em andamento' },
-  { titulo: 'Árvore Caída - Rua 13 de Maio', autor: 'Bianca', status:'Aberta' },
-];
-
-function renderizarDenuncias(lista) {
-  if (lista.length === 0) {
-    resultados.innerHTML = '<p>Nenhuma denúncia encontrada</p>';
-    return;
-  }
-
-  resultados.innerHTML = lista
-    .map(
-      (d) => `
-      <p>
-        <strong>${d.titulo}</strong>
-        <small>por ${d.autor}</small><br>
-        <small>Status: ${d.status}</small>
-      </p>`
-    )
-    .join('');
-}
-
-// Exibe todas as denúncias ao abrir a tela
-renderizarDenuncias(todas_denuncias);
-
-campoBusca.addEventListener('input', e => {
-  const termo = e.target.value.toLowerCase().trim();
-
-  if (termo === '') {
-    renderizarDenuncias(todas_denuncias);
-    return;
-  }
-
-  const filtradas = todas_denuncias.filter(d =>
-    d.titulo.toLowerCase().includes(termo)
-  );
-
-  resultados.innerHTML = filtradas.length
-    ? filtradas.map(d => `<p><strong>${d.titulo}</strong><br><small>por ${d.autor}</small></p>`).join('')
-    : '<p>Nenhuma denúncia encontrada</p>';
-});
 
 // --------------------- TELA LISTA DENUNCIAS ---------------------
 const abas = document.querySelectorAll('.lista-denuncias-menu .aba');
@@ -109,24 +60,20 @@ document.addEventListener('gesturestart', e => e.preventDefault());
 document.addEventListener('gesturechange', e => e.preventDefault());
 document.addEventListener('gestureend', e => e.preventDefault());
 
-// Alternar exibição dos campos de endereço
+// --------------------- CAMPOS DE ENDEREÇO ---------------------
 const radiosEndereco = document.querySelectorAll('input[name="tipo-endereco"]');
 const camposEndereco = document.getElementById('campos-endereco');
 
-radiosEndereco.forEach(radio => {
-  radio.addEventListener('change', () => {
-    if (radio.value === 'informar') {
-      camposEndereco.style.display = 'block';
-    } else {
-      camposEndereco.style.display = 'none';
-    }
-  });
-});
-
-// Inicializa o estado correto ao carregar
-if (document.querySelector('input[name="tipo-endereco"]:checked').value === 'atual') {
-  camposEndereco.style.display = 'none';
+function atualizarCamposEndereco() {
+  const selecionado = document.querySelector('input[name="tipo-endereco"]:checked').value;
+  camposEndereco.style.display = (selecionado === 'informar') ? 'block' : 'none';
 }
+
+// Inicializa o estado ao carregar
+document.addEventListener('DOMContentLoaded', atualizarCamposEndereco);
+
+// Atualiza ao mudar o radio
+radiosEndereco.forEach(radio => radio.addEventListener('change', atualizarCamposEndereco));
 
 function criarDenunciaMock() {
   const mapa = document.getElementById('mapa');

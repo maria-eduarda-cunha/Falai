@@ -119,7 +119,7 @@
       </button>
     </div>
     <div class="lista-denuncias">
-      <div class="card-denuncia">
+      <div class="card-denuncia" onclick="mostrarTela('tela-denuncia-buraco', null)">
         <h3>Buraco</h3>
         <p>Avenida Paulista, 190, Bela Vista, São Paulo, SP</p>
       </div>
@@ -136,6 +136,34 @@
         <p>Rua Rua Galvão Bueno, 10, Liberdade, São Paulo, SP</p>
       </div>
     </div>
+  </section>
+
+  <!-- TELA DENUNCIA BURACO -->
+  <section id="tela-denuncia-buraco">
+    <div class="header-tela-denuncia-buraco">
+      <div class="voltar" >
+        <img src="assets/icon-voltar.png" alt="voltar" class="icon-voltar" onclick="mostrarTela('tela-busca', this)">
+      </div>
+    </div>
+    <img src="assets/buraco.jpg" alt="buraco" class="foto-buraco">
+    <div class="info-denuncia">
+      <div class="header-denuncia">
+        <p class="titulo-denuncia"> Buraco </p>
+        <p class="endereco-denuncia"> Avenida Paulista, 190, Bela Vista, São Paulo, SP </p>
+      </div>
+      <div class="descricao-denuncia">
+        <p class="descricao"> DESCRIÇÃO </p>
+        <p class="descricao-content">Há um buraco grande e profundo no meio da rua, próximo ao meio-fio, que representa risco para pedestres, ciclistas e motoristas. Durante períodos de chuva, acumula água, tornando o local ainda mais perigoso. Necessita reparo urgente pela prefeitura para garantir segurança e fluidez no trânsito.</p>
+      </div>
+      <div class="status-container">
+        <p class="titulo-status">STATUS</p>
+        <div class="status-row">
+          <div class="status-circulo"></div>
+          <p class="status">Aguardando contato</p>
+        </div>
+      </div>
+    </div>
+    <a onclick="mostrarTela('tela-comentarios', this)" class="btn-comentarios">Comentários</a>
   </section>
 
   <!-- TELA LISTA DENUNCIAS -->

@@ -43,7 +43,7 @@ section.ativo {
   touch-action: none;
 }
 
-#tela-busca, #tela-notificacoes, #tela-perfil, #tela-nova-denuncia, #tela-lista-denuncias, #tela-denuncia-modal, #tela-comentarios {
+#tela-denuncia-buraco, #tela-busca, #tela-notificacoes, #tela-perfil, #tela-nova-denuncia, #tela-lista-denuncias, #tela-denuncia-modal, #tela-comentarios {
   height: 86vh;
   width:auto;
   padding: 24px;
@@ -312,6 +312,85 @@ header .material-symbols-outlined {
   color: #8C8C8C;
 }
 
+/* TELA DENÚNCIA BURACO */
+#tela-denuncia-buraco {
+  background-color: white;
+}
+
+.foto-buraco {
+  width: 100%;
+  margin-block: 32px;
+  border-radius: 8px;
+}
+
+.info-denuncia {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.info-denuncia p {
+  margin:0;
+}
+
+.header-denuncia {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.header-denuncia .titulo-denuncia {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.endereco-denuncia {
+  color: #8C8C8C;
+}
+
+.descricao-denuncia {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.descricao {
+  color: #8C8C8C;
+  font-weight: bold;
+  font-size: 0.7rem;
+}
+
+.descricao-content {
+  font-weight: 1.0rem;
+  line-height: 1.25;
+}
+
+.status-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.status-row {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  align-items: center;
+}
+
+.status-circulo {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: #006FFD;
+}
+
+.titulo-status {
+  color: #8C8C8C;
+  font-weight: bold;
+  font-size: 0.7rem;
+}
 
 /* LISTA DENÚNCIAS */
 #tela-lista-denuncias .lista-denuncias-menu {
