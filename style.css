@@ -43,11 +43,18 @@ section.ativo {
   touch-action: none;
 }
 
-#tela-denuncia-buraco, #tela-busca, #tela-notificacoes, #tela-perfil, #tela-nova-denuncia, #tela-lista-denuncias, #tela-denuncia-modal, .comentarios {
+#tela-configuracoes, #tela-denuncia-buraco, #tela-busca, #tela-notificacoes, #tela-perfil, #tela-nova-denuncia, #tela-lista-denuncias, #tela-denuncia-modal, .comentarios {
   height: 86vh;
   width:auto;
   padding: 24px;
   background-color: whitesmoke;
+}
+
+.titulo-pagina {
+  margin-top: 64px;
+  color: #006FFD;
+  font-weight: bold;
+  font-size: 1.2rem;
 }
 
 /* TELA MAPA */
@@ -610,6 +617,108 @@ section.comentarios.ativo {
   margin-bottom: 6px;
   font-weight: 600;
   font-size: 0.95rem;
+}
+
+/* --------------------- TELA DE CONFIGURAÇÕES ---------------------*/
+#tela-configuracoes {
+  display: none; /* padrão oculto */
+  background-color: #fff;
+  padding: 24px;
+  height: 86vh;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+#tela-configuracoes.ativo {
+  display: block;
+}
+
+.header-configuracoes {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  margin-bottom: 32px;
+  height: 64px;                     
+  background-color: white;   
+  box-sizing: border-box;
+}
+
+.voltar {
+  display: flex;             /* faltava isso para o align-items funcionar */
+  align-items: center;
+  cursor: pointer;           /* para feedback visual */
+}
+
+.header-configuracoes h2 {
+  color: #006FFD;
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.voltar img.icon-voltar {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  filter: invert(31%) sepia(80%) saturate(3481%) hue-rotate(195deg) brightness(96%) contrast(101%);
+  /* Ajuste cor do ícone para azul do tema */
+  transition: filter 0.3s ease;
+}
+
+.voltar img.icon-voltar:hover {
+  filter: invert(44%) sepia(91%) saturate(4359%) hue-rotate(203deg) brightness(105%) contrast(107%);
+}
+
+.info-usuario {
+  background-color: #f7f9fc;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #222;
+  margin-bottom: 32px;
+}
+
+.lista-links-config {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 32px;
+}
+
+.lista-links-config li {
+  margin-bottom: 16px;
+}
+
+.lista-links-config a {
+  color: #006FFD;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.lista-links-config a:hover {
+  color: #004bb5;
+  text-decoration: underline;
+}
+
+.btn-deslogar {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 2px 6px rgba(0,111,253,0.5);
+  transition: background-color 0.3s ease;
+}
+
+.btn-deslogar:hover {
+  background-color: #004bb5;
 }
 
 /* --------------------- DETALHES ---------------------*/

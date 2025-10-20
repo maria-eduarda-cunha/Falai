@@ -1,21 +1,45 @@
 // --------------------- TELAS ---------------------
+let ultimaTela = 'tela-mapa'; // Já começa com a tela mapa
+
 function mostrarTela(telaId, menuItem) {
+  // Fecha bottom sheets, se houver
   document.querySelectorAll('.bottom-sheet').forEach(bs => bs.classList.remove('show'));
 
+  // Salva a tela atual antes de mudar (sem ignorar configurações)
+  const telaAtual = document.querySelector('section.ativo');
+  if (telaAtual && telaAtual.id !== telaId) {
+    ultimaTela = telaAtual.id;
+  }
+
+  // Esconde todas as telas
   const telas = document.querySelectorAll('section');
   telas.forEach(tela => tela.classList.remove('ativo'));
 
+  // Mostra a nova tela
   const tela = document.getElementById(telaId);
   if (tela) tela.classList.add('ativo');
 
+  // Atualiza estado dos botões do menu
   const menuItens = document.querySelectorAll('.menu a');
   menuItens.forEach(item => item.classList.remove('active'));
   if (menuItem) menuItem.classList.add('active');
 
+  // Mostra ou oculta o menu inferior, dependendo da tela
   const menu = document.querySelector('.menu');
   const telasComFooter = ['tela-mapa', 'tela-lista-denuncias', 'tela-notificacoes', 'tela-busca'];
   menu.style.display = telasComFooter.includes(telaId) ? 'flex' : 'none';
 }
+
+function voltarTelaAnterior() {
+  // Se ultimaTela for igual a configurações, volta para mapa
+  if (ultimaTela === 'tela-configuracoes' || !ultimaTela) {
+    mostrarTela('tela-mapa');
+  } else {
+    mostrarTela(ultimaTela);
+  }
+}
+
+
 
 // Mostra a tela de mapa por padrão
 mostrarTela('tela-mapa', document.querySelector('.menu a'));

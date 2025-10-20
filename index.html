@@ -21,7 +21,7 @@
   <section id="tela-mapa">
     <header class="app-header">
       <img src="./assets/logo.svg" alt="Logo do app" class="logo-app">
-      <span class="material-symbols-outlined">settings</span>
+      <span class="material-symbols-outlined" onclick="mostrarTela('tela-configuracoes')">settings</span>
     </header>
     <div class="mapa-container">
       <div class="mapa-inner" id="mapa">
@@ -183,44 +183,50 @@
   </section>
 
   <!-- TELA BUSCA -->
-  <section id="tela-busca">
+<section id="tela-busca">
+  <header class="app-header">
+    <img src="./assets/logo.svg" alt="Logo do app" class="logo-app">
+    <span class="material-symbols-outlined" onclick="mostrarTela('tela-configuracoes')">settings</span>
+  </header>
+  <div class="titulo-pagina">
     <h2>Buscar denúncias</h2>
-    <div class="input-wrapper">
-      <span class="material-symbols-outlined lupa">search</span>
-      <input type="text" id="campo-busca">
-    </div>
+  </div>
+  <div class="input-wrapper">
+    <span class="material-symbols-outlined lupa">search</span>
+    <input type="text" id="campo-busca">
+  </div>
 
-    <div class="acoes-busca">
-      <!-- Botão Ordenar -->
-      <button class="btn-ordenar">
-        <span class="material-symbols-outlined">swap_vert</span>
-        Ordenar
-      </button>
-      <!-- Botão Filtrar -->
-      <button class="btn-filtrar">
-        <span class="material-symbols-outlined">filter_list</span>
-        Filtrar
-      </button>
+  <div class="acoes-busca">
+    <!-- Botão Ordenar -->
+    <button class="btn-ordenar">
+      <span class="material-symbols-outlined">swap_vert</span>
+      Ordenar
+    </button>
+    <!-- Botão Filtrar -->
+    <button class="btn-filtrar">
+      <span class="material-symbols-outlined">filter_list</span>
+      Filtrar
+    </button>
+  </div>
+  <div class="lista-denuncias">
+    <div class="card-denuncia" onclick="mostrarTela('tela-denuncia-buraco', null)">
+      <h3>Buraco</h3>
+      <p>Avenida Paulista, 190, Bela Vista, São Paulo, SP</p>
     </div>
-    <div class="lista-denuncias">
-      <div class="card-denuncia" onclick="mostrarTela('tela-denuncia-buraco', null)">
-        <h3>Buraco</h3>
-        <p>Avenida Paulista, 190, Bela Vista, São Paulo, SP</p>
-      </div>
-      <div class="card-denuncia">
-        <h3>Alagamento</h3>
-        <p>Rua Augusta, 2000, Consolação, São Paulo, SP</p>
-      </div>
-      <div class="card-denuncia">
-        <h3>Atividade Criminosa</h3>
-        <p>Rua Oscar Freire, 80, Jardim Paulista, São Paulo, SP</p>
-      </div>
-      <div class="card-denuncia">
-        <h3>Entulho</h3>
-        <p>Rua Rua Galvão Bueno, 10, Liberdade, São Paulo, SP</p>
-      </div>
+    <div class="card-denuncia">
+      <h3>Alagamento</h3>
+      <p>Rua Augusta, 2000, Consolação, São Paulo, SP</p>
     </div>
-  </section>
+    <div class="card-denuncia">
+      <h3>Atividade Criminosa</h3>
+      <p>Rua Oscar Freire, 80, Jardim Paulista, São Paulo, SP</p>
+    </div>
+    <div class="card-denuncia">
+      <h3>Entulho</h3>
+      <p>Rua Rua Galvão Bueno, 10, Liberdade, São Paulo, SP</p>
+    </div>
+  </div>
+</section>
 
   <!-- TELA DENUNCIA BURACO -->
   <section id="tela-denuncia-buraco">
@@ -253,122 +259,125 @@
   </section>
 
   <!-- TELA MINHAS DENUNCIAS -->
-  <section id="tela-lista-denuncias">
+<section id="tela-lista-denuncias">
+  <header class="app-header">
+    <img src="./assets/logo.svg" alt="Logo do app" class="logo-app">
+    <span class="material-symbols-outlined" onclick="mostrarTela('tela-configuracoes')">settings</span>
+  </header>
+  <div class="titulo-pagina">
     <h2>Minhas Denúncias</h2>
-    <div class="lista-denuncias-menu">
-      <button class="aba active" data-status="abertas">Abertas</button>
-      <button class="aba" data-status="em-andamento">Em Progresso</button>
-      <button class="aba" data-status="concluidas">Concluídas</button>
+  </div>
+  <div class="lista-denuncias-menu">
+    <button class="aba active" data-status="abertas">Abertas</button>
+    <button class="aba" data-status="em-andamento">Em Progresso</button>
+    <button class="aba" data-status="concluidas">Concluídas</button>
+  </div>
+
+  <div class="lista-denuncias">
+    <!-- ABERTAS -->
+    <div class="card-denuncia" data-status="abertas">
+      <h3>Buraco</h3>
+      <p>Rua das Flores, 123, Bairro Jardim das Rosas, São Paulo, SP</p>
+    </div>
+    <div class="card-denuncia" data-status="abertas">
+      <h3>Árvore caída</h3>
+      <p>Rua Oscar Freire, 456, Jardim Paulista, São Paulo, SP</p>
+    </div>
+    <div class="card-denuncia" data-status="abertas">
+      <h3>Alagamento</h3>
+      <p>Rua Honório, 250, Boa Visão, São Paulo, SP </p>
     </div>
 
-    <div class="lista-denuncias">
-      <!-- ABERTAS -->
-      <div class="card-denuncia" data-status="abertas">
-        <h3>Buraco</h3>
-        <p>Rua das Flores, 123, Bairro Jardim das Rosas, São Paulo, SP</p>
-      </div>
-      <div class="card-denuncia" data-status="abertas">
-        <h3>Árvore caída</h3>
-        <p>Rua Oscar Freire, 456, Jardim Paulista, São Paulo, SP</p>
-      </div>
-      <div class="card-denuncia" data-status="abertas">
-        <h3>Alagamento</h3>
-        <p>Rua Honório, 250, Boa Visão, São Paulo, SP </p>
-      </div>
-
-      <!-- EM ANDAMENTO -->
-      <div class="card-denuncia" data-status="em-andamento">
-        <h3>Entulho</h3>
-        <p>Rua da Consolação, 789, Consolação, São Paulo, SP</p>
-      </div>
-      <div class="card-denuncia" data-status="em-andamento">
-        <h3>Atividade criminosa</h3>
-        <p>Rua dos Pinheiros, 101, Pinheiros, São Paulo, SP</p>
-      </div>
-
-      <!-- CONCLUÍDAS -->
-      <div class="card-denuncia" data-status="concluidas">
-        <h3>Buraco</h3>
-        <p>Rua Maria Antonia, 202, Higienópolis, São Paulo, SP</p>
-      </div>
-      <div class="card-denuncia" data-status="concluidas">
-        <h3>Árvore caída</h3>
-        <p>Avenida Sumaré, 606, Perdizes, São Paulo, SP</p>
-      </div>
-      <div class="card-denuncia" data-status="concluidas">
-        <h3>Alagamento</h3>
-        <p>Rua Vergueiro, 303, Paraíso, São Paulo, SP</p>
-      </div>
-      <div class="card-denuncia" data-status="concluidas">
-        <h3>Entulho</h3>
-        <p>Rua dos Timbiras, 404, Santana, São Paulo, SP</p>
-      </div>
-      <div class="card-denuncia" data-status="concluidas">
-        <h3>Atividade criminosa</h3>
-        <p>Rua Carneiro da Cunha, 505, Tatuapé, São Paulo, SP</p>
-      </div>
+    <!-- EM ANDAMENTO -->
+    <div class="card-denuncia" data-status="em-andamento">
+      <h3>Entulho</h3>
+      <p>Rua da Consolação, 789, Consolação, São Paulo, SP</p>
     </div>
-  </section>
+    <div class="card-denuncia" data-status="em-andamento">
+      <h3>Atividade criminosa</h3>
+      <p>Rua dos Pinheiros, 101, Pinheiros, São Paulo, SP</p>
+    </div>
+
+    <!-- CONCLUÍDAS -->
+    <div class="card-denuncia" data-status="concluidas">
+      <h3>Buraco</h3>
+      <p>Rua Maria Antonia, 202, Higienópolis, São Paulo, SP</p>
+    </div>
+    <div class="card-denuncia" data-status="concluidas">
+      <h3>Árvore caída</h3>
+      <p>Avenida Sumaré, 606, Perdizes, São Paulo, SP</p>
+    </div>
+    <div class="card-denuncia" data-status="concluidas">
+      <h3>Alagamento</h3>
+      <p>Rua Vergueiro, 303, Paraíso, São Paulo, SP</p>
+    </div>
+    <div class="card-denuncia" data-status="concluidas">
+      <h3>Entulho</h3>
+      <p>Rua dos Timbiras, 404, Santana, São Paulo, SP</p>
+    </div>
+    <div class="card-denuncia" data-status="concluidas">
+      <h3>Atividade criminosa</h3>
+      <p>Rua Carneiro da Cunha, 505, Tatuapé, São Paulo, SP</p>
+    </div>
+  </div>
+</section>
+
 
 
 
   <!-- TELA NOTIFICAÇÕES -->
-  <section id="tela-notificacoes">
+<section id="tela-notificacoes">
+  <header class="app-header">
+    <img src="./assets/logo.svg" alt="Logo do app" class="logo-app">
+    <span class="material-symbols-outlined" onclick="mostrarTela('tela-configuracoes')">settings</span>
+  </header>
+  <div class="titulo-pagina">
     <h2>Notificações</h2>
-    <div class="lista-notificacoes">
+  </div>
+  <div class="lista-notificacoes">
 
-      <!-- MAIS RECENTE -->
-      <div class="notificacao" data-status="abertas">
-        <label>Denúncia enviada: <br> Alagamento - Rua Honório, 250, Boa Visão, São Paulo, SP</label>
-        A prefeitura recebeu sua denúncia e analisará o problema.
-      </div>
-
-      <div class="notificacao" data-status="concluidas">
-        <label>Problema resolvido: <br> Buraco - Rua Maria Antonia, 202, Higienópolis, São Paulo, SP</label>
-        A prefeitura realizou a manutenção no local.
-      </div>
-
-      <div class="notificacao" data-status="em-andamento">
-        <label>Problema em análise: <br> Entulho - Rua da Consolação, 789, Consolação, São Paulo, SP</label>
-        A prefeitura acionou a equipe para ir até o local.
-      </div>
-
-      <div class="notificacao" data-status="abertas">
-        <label>Denúncia enviada: <br> Árvore caída - Rua Oscar Freire, 456, Jardim Paulista, São Paulo, SP</label>
-        A prefeitura recebeu sua denúncia e analisará o problema.
-      </div>
-
-      <div class="notificacao" data-status="concluidas">
-        <label>Problema resolvido: <br> Atividade criminosa - Rua Carneiro da Cunha, 505, Tatuapé, São Paulo, SP</label>
-        A prefeitura prendeu o grupo responsável.
-      </div>
-
-      <div class="notificacao" data-status="em-andamento">
-        <label>Problema em análise: <br> Atividade criminosa - Rua dos Pinheiros, 101, Pinheiros, São Paulo, SP</label>
-        A prefeitura acionou a equipe para ir até o local.
-      </div>
-
-      <div class="notificacao" data-status="concluidas">
-        <label>Problema resolvido: <br> Árvore caída - Avenida Sumaré, 606, Perdizes, São Paulo, SP</label>
-        A prefeitura removeu a árvore e realizará o plantio de uma nova.
-      </div>
-
-      <div class="notificacao" data-status="abertas">
-        <label>Denúncia enviada: <br> Buraco - Rua das Flores, 123, Jardim das Rosas, São Paulo, SP</label>
-        A prefeitura recebeu sua denúncia e analisará o problema.
-      </div>
-
-      <div class="notificacao" data-status="concluidas">
-        <label>Problema resolvido: <br> Alagamento - Rua Vergueiro, 303, Paraíso, São Paulo, SP</label>
-        A prefeitura limpou os bueiros.
-      </div>
-
-      <div class="notificacao" data-status="concluidas">
-        <label>Problema resolvido: <br> Entulho - Rua dos Timbiras, 404, Santana, São Paulo, SP</label>
-        A prefeitura realizou a limpeza do local.
-      </div>
+    <!-- MAIS RECENTE -->
+    <div class="notificacao" data-status="abertas">
+      <label>Denúncia enviada: <br> Alagamento - Rua Honório, 250, Boa Visão, São Paulo, SP</label>
+      A prefeitura recebeu sua denúncia e analisará o problema.
     </div>
-  </section>
+
+    <div class="notificacao" data-status="concluidas">
+      <label>Problema resolvido: <br> Buraco - Rua Maria Antonia, 202, Higienópolis, São Paulo, SP</label>
+      A prefeitura realizou a manutenção no local.
+    </div>
+
+    <div class="notificacao" data-status="em-andamento">
+      <label>Problema em análise: <br> Entulho - Rua da Consolação, 789, Consolação, São Paulo, SP</label>
+      A prefeitura acionou a equipe para ir até o local.
+    </div>
+
+    <div class="notificacao" data-status="abertas">
+      <label>Denúncia enviada: <br> Árvore caída - Rua Oscar Freire, 456, Jardim Paulista, São Paulo, SP</label>
+      A prefeitura recebeu sua denúncia e analisará o problema.
+    </div>
+
+    <div class="notificacao" data-status="concluidas">
+      <label>Problema resolvido: <br> Atividade criminosa - Rua Carneiro da Cunha, 505, Tatuapé, São Paulo, SP</label>
+      A prefeitura prendeu o grupo responsável.
+    </div>
+
+    <div class="notificacao" data-status="em-andamento">
+      <label>Problema em análise: <br> Atividade criminosa - Rua dos Pinheiros, 101, Pinheiros, São Paulo, SP</label>
+      A prefeitura acionou a equipe para ir até o local.
+    </div>
+
+    <div class="notificacao" data-status="concluidas">
+      <label>Problema resolvido: <br> Árvore caída - Avenida Sumaré, 606, Perdizes, São Paulo, SP</label>
+      A prefeitura removeu a árvore e realizará o plantio de uma nova.
+    </div>
+
+    <div class="notificacao" data-status="em-andamento">
+      <label>Problema em análise: <br> Alagamento - Rua Vergueiro, 303, Paraíso, São Paulo, SP</label>
+      A prefeitura acionou a equipe para ir até o local.
+    </div>
+  </div>
+</section>
 
   <!-- COMENTÁRIOS DENUNCIA DE ALAGAMENTO -->
   <section id="comentarios-alagamento" class="comentarios">
@@ -424,10 +433,10 @@
       <h2>Comentários</h2>
     </div>
     <div class="comentarios-conteudo">
-    <div class="comentario-item"><strong>Camila Martins</strong> Passei de bike e quase caí nesse buraco.</div>
-    <div class="comentario-item"><strong>Eduardo Ramos</strong> O buraco está aumentando, cuidado!</div>
-    <div class="comentario-item"><strong>Larissa Souza</strong> A rua está perigosa à noite por causa disso.</div>
-  </div>
+      <div class="comentario-item"><strong>Camila Martins</strong> Passei de bike e quase caí nesse buraco.</div>
+      <div class="comentario-item"><strong>Eduardo Ramos</strong> O buraco está aumentando, cuidado!</div>
+      <div class="comentario-item"><strong>Larissa Souza</strong> A rua está perigosa à noite por causa disso.</div>
+    </div>
     <div class="comentario-input">
       <input type="text" placeholder="Digite aqui...">
       <a class="btn-enviar">Postar</a>
@@ -447,15 +456,39 @@
       <h2>Comentários</h2>
     </div>
     <div class="comentarios-conteudo">
-    <div class="comentario-item"><strong>Renato Vieira</strong> Vi um carro quebrar a roda aí semana passada.</div>
-    <div class="comentario-item"><strong>Aline Torres</strong> Já faz meses que esse buraco está aí.</div>
-    <div class="comentario-item"><strong>Gabriel Nunes</strong> Tá bem na frente da escola, muito perigoso.</div>
-    <div class="comentario-item"><strong>Juliana Batista</strong> A prefeitura foi avisada, mas nada foi feito.</div>
-    <div class="comentario-item"><strong>Thiago Mendes</strong> Vamos marcar a ouvidoria novamente.</div>
-  </div>
+      <div class="comentario-item"><strong>Renato Vieira</strong> Vi um carro quebrar a roda aí semana passada.</div>
+      <div class="comentario-item"><strong>Aline Torres</strong> Já faz meses que esse buraco está aí.</div>
+      <div class="comentario-item"><strong>Gabriel Nunes</strong> Tá bem na frente da escola, muito perigoso.</div>
+      <div class="comentario-item"><strong>Juliana Batista</strong> A prefeitura foi avisada, mas nada foi feito.</div>
+      <div class="comentario-item"><strong>Thiago Mendes</strong> Vamos marcar a ouvidoria novamente.</div>
+    </div>
     <div class="comentario-input">
       <input type="text" placeholder="Digite aqui...">
       <a class="btn-enviar">Postar</a>
+    </div>
+  </section>
+
+  <!-- TELA CONFIGURAÇÕES -->
+  <section id="tela-configuracoes">
+    <div class="header-configuracoes">
+      <div class="voltar">
+        <img src="./assets/icon-voltar.png" alt="voltar" class="icon-voltar" onclick="voltarTelaAnterior()">
+      </div>
+      <h2>Configurações</h2>
+    </div>
+
+    <div class="conteudo-configuracoes">
+      <div class="info-usuario">
+        <p><strong>Nome do usuário</strong></p>
+      </div>
+
+      <ul class="lista-links-config">
+        <li><a href="#" onclick="alert('Redirecionar para Política de Privacidade')">Política de Privacidade</a></li>
+        <li><a href="#" onclick="alert('Redirecionar para Termos de Uso')">Termos de Uso</a></li>
+        <li><a href="#" onclick="alert('Redirecionar para SAC')">Atendimento ao Usuário (SAC)</a></li>
+      </ul>
+
+      <button class="btn-deslogar" onclick="alert('Usuário deslogado (mock)')">Sair da conta</button>
     </div>
   </section>
 
