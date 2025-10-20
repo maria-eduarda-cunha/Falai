@@ -33,13 +33,20 @@ radiosEndereco.forEach(radio => radio.addEventListener('change', atualizarCampos
 // --------------------- BOTTOM SHEET ---------------------
 const bottomSheet = document.getElementById('bottom-sheet');
 
-function abrirBottomSheet() {
-  bottomSheet.classList.add('show');
+function abrirBottomSheet(id) {
+  // Fecha qualquer outro bottom sheet aberto
+  document.querySelectorAll('.bottom-sheet').forEach(bs => bs.classList.remove('show'));
+
+  // Abre o específico
+  const sheet = document.getElementById(id);
+  if (sheet) sheet.classList.add('show');
 }
 
-function fecharBottomSheet() {
-  bottomSheet.classList.remove('show');
+function fecharBottomSheet(id) {
+  const sheet = document.getElementById(id);
+  if (sheet) sheet.classList.remove('show');
 }
+
 
 // --------------------- CRIAR PIN MOCK ---------------------
 function criarDenunciaMock() {
@@ -53,7 +60,7 @@ function criarDenunciaMock() {
   pin.textContent = 'fmd_bad';
 
   // Ao clicar no pin, abre o bottom sheet já preenchido no HTML
-  pin.addEventListener('click', abrirBottomSheet);
+  pin.addEventListener('click', () => abrirBottomSheet('bottom-sheet-alagamento'));
 
   mapa.appendChild(pin);
 

@@ -27,8 +27,10 @@
       <div class="mapa-inner" id="mapa">
         <img src="./assets/mockup-mapa.png" alt="Mapa">
         <!-- PINS -->
-        <span class="material-symbols-outlined pin" style="top: 300px; left: 360px;">fmd_bad</span>
-        <span class="material-symbols-outlined pin" style="top: 650px; left: 590px;">fmd_bad</span>
+        <span class="material-symbols-outlined pin" style="top: 300px; left: 360px;"
+          onclick="abrirBottomSheet('bottom-sheet-buraco')">fmd_bad</span>
+        <span class="material-symbols-outlined pin" style="top: 650px; left: 590px;"
+          onclick="abrirBottomSheet('bottom-sheet-crime')">fmd_bad</span>
       </div>
 
       <a class="nova-denuncia" onclick="mostrarTela('tela-nova-denuncia', this)">
@@ -38,10 +40,10 @@
     </div>
   </section>
 
-  <!-- BOTTOM SHEET DENUNCIA -->
-  <div id="bottom-sheet" class="bottom-sheet">
+  <!-- BOTTOM SHEET ALAGAMENTO - CRIADA PELO USUÁRIO -->
+  <div id="bottom-sheet-alagamento" class="bottom-sheet">
     <div class="bs-header">
-      <span class="material-symbols-outlined close-bs" onclick="fecharBottomSheet()">close</span>
+      <span class="material-symbols-outlined close-bs" onclick="fecharBottomSheet('bottom-sheet-alagamento')">close</span>
     </div>
 
     <div class="info-denuncia">
@@ -63,7 +65,60 @@
         </div>
       </div>
       <a class="btn-comentarios">Comentários</a>
-      <a onclick="fecharBottomSheet()" class="btn-fechar-bs">Fechar</a>
+      <a onclick="fecharBottomSheet('bottom-sheet-alagamento')" class="btn-fechar-bs">Fechar</a>
+    </div>
+  </div>
+
+  <!-- BOTTOM SHEET: Buraco -->
+  <div id="bottom-sheet-buraco" class="bottom-sheet">
+    <div class="bs-header">
+      <span class="material-symbols-outlined close-bs" onclick="fecharBottomSheet('bottom-sheet-buraco')">close</span>
+    </div>
+    <div class="info-denuncia">
+      <div class="header-denuncia">
+        <p class="titulo-denuncia">Buraco</p>
+        <p class="endereco-denuncia">Avenida Conselheiro Fiel, 190, Boa Visão, São Paulo, SP</p>
+      </div>
+      <div class="descricao-denuncia">
+        <p class="descricao">DESCRIÇÃO</p>
+        <p class="descricao-content">Há um buraco grande no meio da rua, representando risco para pedestres e
+          motoristas.</p>
+      </div>
+      <div class="status-container">
+        <p class="titulo-status">STATUS</p>
+        <div class="status-row">
+          <div class="status-circulo"></div>
+          <p class="status">Aberta</p>
+        </div>
+      </div>
+      <a class="btn-comentarios">Comentários</a>
+      <a onclick="fecharBottomSheet('bottom-sheet-buraco')" class="btn-fechar-bs">Fechar</a>
+    </div>
+  </div>
+
+  <!-- BOTTOM SHEET: Atividade Criminosa -->
+  <div id="bottom-sheet-crime" class="bottom-sheet">
+    <div class="bs-header">
+      <span class="material-symbols-outlined close-bs" onclick="fecharBottomSheet('bottom-sheet-crime')">close</span>
+    </div>
+    <div class="info-denuncia">
+      <div class="header-denuncia">
+        <p class="titulo-denuncia">Atividade Criminosa</p>
+        <p class="endereco-denuncia">Rua das Flores, 80, Boa Visão, São Paulo, SP</p>
+      </div>
+      <div class="descricao-denuncia">
+        <p class="descricao">DESCRIÇÃO</p>
+        <p class="descricao-content">Ocorrência frequente de assaltos durante a noite nesta região.</p>
+      </div>
+      <div class="status-container">
+        <p class="titulo-status">STATUS</p>
+        <div class="status-row">
+          <div class="status-circulo"></div>
+          <p class="status">Aberta</p>
+        </div>
+      </div>
+      <a class="btn-comentarios">Comentários</a>
+      <a onclick="fecharBottomSheet('bottom-sheet-crime')" class="btn-fechar-bs">Fechar</a>
     </div>
   </div>
 
