@@ -4,11 +4,11 @@ section.ativo { display: block; }
 
 /* --------------------- MENU ---------------------*/
 section {
-  display: none; /* todas escondidas por padrão */
+  display: none;
 }
 
 section.ativo {
-  display: block; /* apenas a tela ativa aparece */
+  display: block;
 }
 
 .menu {
@@ -16,7 +16,7 @@ section.ativo {
   bottom: 0;
   left: 0;
   right: 0;
-  height: 56px; /* altura do menu */
+  height: 56px;
   background-color: white;
   display: flex;
   justify-content: space-between;
@@ -33,7 +33,7 @@ section.ativo {
 }
 
 .menu a.active {
-  color: #006FFD; /* destaque do item ativo */
+  color: #006FFD;
 }
 
 /* --------------------- TELAS --------------------- */
@@ -91,7 +91,7 @@ header .material-symbols-outlined {
 }
 
 .mapa-inner img {
-  width: 1000px; /* largura base */
+  width: 1000px;
   height: 100vh;
   display: block;
   pointer-events: none;
@@ -166,11 +166,11 @@ header .material-symbols-outlined {
 }
 
 #tela-nova-denuncia select {
-  padding: 10px 40px 10px 10px; /* espaço para a seta */
+  padding: 10px 40px 10px 10px;
   border-radius: 8px;
   border: 1px solid #ccc;
   background-color: #fff;
-  appearance: none; /* remove a seta nativa */
+  appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   background-image: url('data:image/svg+xml;utf8,<svg fill="%23000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
@@ -240,12 +240,12 @@ header .material-symbols-outlined {
   transform: translateY(-50%);
   color: gray;
   font-size: 20px;
-  pointer-events: none; /* evita que a lupa capture clique */
+  pointer-events: none;
 }
 
 .input-wrapper input {
   width: 100%;
-  padding: 12px 16px 12px 44px; /* espaço à esquerda suficiente para a lupa */
+  padding: 12px 16px 12px 44px;
   border: none;
   border-radius: 12px;
   background-color: #fff;
@@ -278,7 +278,7 @@ header .material-symbols-outlined {
 /* BUSCA DENÚNCIAS */
 .lista-denuncias {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(45%, 1fr)); /* 2 por linha */
+  grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
   gap: 12px;
   padding: 0;
   margin-top: 10px;
@@ -463,14 +463,59 @@ header .material-symbols-outlined {
 
 /* NOTIFICAÇÕES */
 #tela-notificacoes {
-  overflow: auto;
+  overflow-y: auto;
+  padding-bottom: 80px; /* espaço extra para o menu fixo */
 }
-#tela-notificacoes .lista-notificacoes .notificacao {
-  padding: 10px;
+
+#tela-notificacoes .lista-notificacoes {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0;
+  margin-top: 10px;
+}
+
+#tela-notificacoes .notificacao {
+  background-color: white;
+  border-radius: 12px;
+  padding: 14px 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-left: 5px solid transparent;
+}
+
+#tela-notificacoes .notificacao:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+#tela-notificacoes .notificacao label {
+  font-weight: 600;
+  color: #006FFD;
   margin-bottom: 6px;
-  border-radius: 8px;
-  background-color: #f7f7f7;
-  border: 1px solid #ddd;
+  font-size: 1rem;
+}
+
+#tela-notificacoes .notificacao p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.3;
+}
+
+#tela-notificacoes .notificacao[data-status="abertas"] {
+  border-left-color: #006FFD; 
+}
+
+#tela-notificacoes .notificacao[data-status="em-andamento"] {
+  border-left-color: #FFB000; 
+}
+
+#tela-notificacoes .notificacao[data-status="concluidas"] {
+  border-left-color: #28A745; 
 }
 
 /* --------------------- DETALHES ---------------------*/
@@ -496,7 +541,7 @@ textarea, select, input[type="file"] {
 /* PINS */
 .pin {
   color: red;
-  font-size: 40px; /* Tamanho do ícone */
+  font-size: 40px;
   vertical-align: middle;
   position: absolute;
 }
@@ -529,8 +574,8 @@ textarea, select, input[type="file"] {
 .btn-enviar:hover, .btn-fechar:hover, .btn-comentarios:hover { background-color: #005fcc; }
 .btn-fechar-bs {
   display: block;
-  background-color: #fff; /* fundo branco */
-  color: royalblue;       /* texto azul */
+  background-color: #fff; 
+  color: royalblue;      
   padding: 10px;
   border-radius: 8px;
   text-decoration: none;
@@ -538,11 +583,11 @@ textarea, select, input[type="file"] {
   cursor: pointer;
   width: 100%;
   box-sizing: border-box;
-  border: 2px solid royalblue; /* opcional: contorno azul */
+  border: 2px solid royalblue;
 }
 
 .btn-fechar-bs:hover {
-  background-color: #f0f8ff; /* leve azul ao passar o mouse */
+  background-color: #f0f8ff;
 }
 
 

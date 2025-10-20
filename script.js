@@ -66,3 +66,28 @@ document.addEventListener('wheel', e => { if (e.ctrlKey) e.preventDefault(); }, 
 document.addEventListener('gesturestart', e => e.preventDefault());
 document.addEventListener('gesturechange', e => e.preventDefault());
 document.addEventListener('gestureend', e => e.preventDefault());
+
+// --------------------- FILTRAR MINHAS DENÚNCIAS ---------------------
+const abasLista = document.querySelectorAll('#tela-lista-denuncias .lista-denuncias-menu .aba');
+const denunciasLista = document.querySelectorAll('#tela-lista-denuncias .lista-denuncias .card-denuncia');
+
+function filtrarDenunciasLista(status) {
+  denunciasLista.forEach(card => {
+    card.style.display = (card.dataset.status === status) ? 'block' : 'none';
+  });
+}
+
+// Inicializa mostrando apenas “Abertas”
+filtrarDenunciasLista('abertas');
+
+abasLista.forEach(aba => {
+  aba.addEventListener('click', () => {
+    // Atualiza o botão ativo
+    abasLista.forEach(a => a.classList.remove('active'));
+    aba.classList.add('active');
+
+    // Filtra os cards
+    filtrarDenunciasLista(aba.dataset.status);
+  });
+});
+
