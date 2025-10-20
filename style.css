@@ -519,6 +519,9 @@ header .material-symbols-outlined {
 }
 
 /* --------------------- DETALHES ---------------------*/
+.logo-app {
+  width: 140px;
+}
 h2 {
   text-align: center;
   color: #006FFD;
