@@ -43,7 +43,8 @@
   <!-- BOTTOM SHEET ALAGAMENTO - CRIADA PELO USUÁRIO -->
   <div id="bottom-sheet-alagamento" class="bottom-sheet">
     <div class="bs-header">
-      <span class="material-symbols-outlined close-bs" onclick="fecharBottomSheet('bottom-sheet-alagamento')">close</span>
+      <span class="material-symbols-outlined close-bs"
+        onclick="fecharBottomSheet('bottom-sheet-alagamento')">close</span>
     </div>
 
     <div class="info-denuncia">
@@ -91,7 +92,7 @@
           <p class="status">Aberta</p>
         </div>
       </div>
-      <a class="btn-comentarios">Comentários</a>
+      <a class="btn-comentarios" onclick="mostrarTela('comentarios-buraco-mapa')">Comentários</a>
       <a onclick="fecharBottomSheet('bottom-sheet-buraco')" class="btn-fechar-bs">Fechar</a>
     </div>
   </div>
@@ -117,7 +118,7 @@
           <p class="status">Aberta</p>
         </div>
       </div>
-      <a class="btn-comentarios">Comentários</a>
+      <a class="btn-comentarios" onclick="mostrarTela('comentarios-crime')">Comentários</a>
       <a onclick="fecharBottomSheet('bottom-sheet-crime')" class="btn-fechar-bs">Fechar</a>
     </div>
   </div>
@@ -248,7 +249,7 @@
         </div>
       </div>
     </div>
-    <a class="btn-comentarios">Comentários</a>
+    <a class="btn-comentarios" onclick="mostrarTela('comentarios-buraco-busca')">Comentários</a>
   </section>
 
   <!-- TELA MINHAS DENUNCIAS -->
@@ -373,7 +374,8 @@
   <section id="comentarios-alagamento" class="comentarios">
     <div class="header-comentarios-alagamento">
       <div class="voltar">
-          <img src="./assets/icon-voltar.png" alt="voltar" class="icon-voltar" onclick="voltarParaMapaComBottomSheetAlagamento()">
+        <img src="./assets/icon-voltar.png" alt="voltar" class="icon-voltar"
+          onclick="voltarParaMapaComBottomSheetAlagamento()">
       </div>
       <h2>Comentários</h2>
     </div>
@@ -385,6 +387,76 @@
       <a class="btn-enviar">Postar</a>
     </div>
 
+  </section>
+
+  <!-- COMENTÁRIOS - Atividade Criminosa -->
+  <section id="comentarios-crime" class="comentarios">
+    <div class="header-comentarios-alagamento">
+      <div class="voltar">
+        <img src="./assets/icon-voltar.png" alt="voltar" class="icon-voltar"
+          onclick="voltarParaMapaComBottomSheetCrime()">
+      </div>
+      <h2>Comentários</h2>
+    </div>
+    <div class="comentarios-conteudo">
+      <div class="comentario-item"><strong>João Silva</strong> Ouvi sirenes nessa área ontem à noite.</div>
+      <div class="comentario-item"><strong>Maria Oliveira</strong> Câmeras de segurança podem ter captado algo.</div>
+      <div class="comentario-item"><strong>Lucas Pereira</strong> Já fiz denúncia parecida na semana passada.</div>
+      <div class="comentario-item"><strong>Fernanda Costa</strong> A movimentação suspeita continua.</div>
+      <div class="comentario-item"><strong>Rafael Lima</strong> Seria bom mais rondas da polícia.</div>
+      <div class="comentario-item"><strong>Paula Rocha</strong> Infelizmente, isso acontece com frequência.</div>
+      <div class="comentario-item"><strong>Marcos Dias</strong> Obrigado por relatar, vamos ficar atentos.</div>
+    </div>
+    <div class="comentario-input">
+      <input type="text" placeholder="Digite aqui...">
+      <a class="btn-enviar">Postar</a>
+    </div>
+  </section>
+
+
+  <!-- COMENTÁRIOS - Buraco (via mapa) -->
+  <section id="comentarios-buraco-mapa" class="comentarios">
+    <div class="header-comentarios-alagamento">
+      <div class="voltar">
+        <img src="./assets/icon-voltar.png" alt="voltar" class="icon-voltar"
+          onclick="voltarParaMapaComBottomSheetBuracoMapa()">
+      </div>
+      <h2>Comentários</h2>
+    </div>
+    <div class="comentarios-conteudo">
+    <div class="comentario-item"><strong>Camila Martins</strong> Passei de bike e quase caí nesse buraco.</div>
+    <div class="comentario-item"><strong>Eduardo Ramos</strong> O buraco está aumentando, cuidado!</div>
+    <div class="comentario-item"><strong>Larissa Souza</strong> A rua está perigosa à noite por causa disso.</div>
+  </div>
+    <div class="comentario-input">
+      <input type="text" placeholder="Digite aqui...">
+      <a class="btn-enviar">Postar</a>
+    </div>
+  </section>
+
+
+  <!-- COMENTÁRIOS - Buraco (via busca) -->
+  <section id="comentarios-buraco-busca" class="comentarios">
+    <div class="header-comentarios-alagamento">
+      <div class="voltar">
+        <div class="voltar">
+          <img src="./assets/icon-voltar.png" alt="voltar" class="icon-voltar"
+            onclick="mostrarTela('tela-denuncia-buraco')">
+        </div>
+      </div>
+      <h2>Comentários</h2>
+    </div>
+    <div class="comentarios-conteudo">
+    <div class="comentario-item"><strong>Renato Vieira</strong> Vi um carro quebrar a roda aí semana passada.</div>
+    <div class="comentario-item"><strong>Aline Torres</strong> Já faz meses que esse buraco está aí.</div>
+    <div class="comentario-item"><strong>Gabriel Nunes</strong> Tá bem na frente da escola, muito perigoso.</div>
+    <div class="comentario-item"><strong>Juliana Batista</strong> A prefeitura foi avisada, mas nada foi feito.</div>
+    <div class="comentario-item"><strong>Thiago Mendes</strong> Vamos marcar a ouvidoria novamente.</div>
+  </div>
+    <div class="comentario-input">
+      <input type="text" placeholder="Digite aqui...">
+      <a class="btn-enviar">Postar</a>
+    </div>
   </section>
 
   <!-- MENU INFERIOR -->

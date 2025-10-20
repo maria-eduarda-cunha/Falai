@@ -105,3 +105,13 @@ function voltarParaMapaComBottomSheetAlagamento() {
   mostrarTela('tela-mapa');          
   abrirBottomSheet('bottom-sheet-alagamento');     
 }
+
+function voltarParaMapaComBottomSheetCrime() {
+  mostrarTela('tela-mapa');          
+  abrirBottomSheet('bottom-sheet-crime');     
+}
+
+function voltarParaMapaComBottomSheetBuracoMapa() {
+  mostrarTela('tela-mapa');          
+  abrirBottomSheet('bottom-sheet-buraco');     
+}
